@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 	<head>
@@ -27,7 +28,7 @@
 
 				<!-- Quick nav -->
 				<div id="quicknav">
-					<a href="#">首页</a>
+					<a href="index.jsp">首页</a>
 					<a href="#">联系</a>
 					<a href="#">登录系统</a>
 				</div>
@@ -52,7 +53,7 @@
 			<div id="nav" class="box">
 				<ul>
 					<li id="active">
-						<a href="#">首页</a>
+						<a href="index.jsp">首页</a>
 					</li>
 					<!-- Active link -->
 					<li>
@@ -99,24 +100,6 @@
 				<div id="obsah" class="content box">
 					<div class="in">
 
-						<div id="new-article">
-							<div id="corner">
-								<h2>
-									<a href="newsmore.jsp">头条新闻</a>
-								</h2>
-								<div class="f-left article-img">
-									<img src="./tmp/image.jpg" alt="image.jpg" title="image" />
-									<div></div>
-								</div>
-								<p class="f-left">
-									【导语】山水自然保护中心（简称“山水”）由北京大学教授吕植创建，成立于2007年，并于2008年在青海省创立工作点。之后，以普氏原羚为代表物种的青海湖区域就成为了山水的重点实践基地，普氏原羚协议保护也应运而生。那么，山水是如何与当地居民协作，实施保护工作？成立至今，山水又取得了哪些成就？
-2008年12月，普氏原羚保护协议正式在青海湖周边的刚察县、海晏县开始实施...
-									<a href="servlet/SelectContentServlet" class="more">MORE</a>
-								</p>
-								<div class="clear"></div>
-							</div>
-						</div>
-
 						<div class="article">
 
 							<h2>
@@ -126,94 +109,20 @@
 
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px" border="1px">
+								<c:forEach items="${list}" var="temp" >
 								<tr>
 									<td width="2%">
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										aaaaaa
+										${temp.title}
 									</td>
 									<td width="10%">
-										2012-02-12
+										${temp.time}
 									</td>
 								</tr>
+								</c:forEach>
 							</table>
-							<a href="servlet/qiantaixw" class="more">MORE</a>
-							<div class="clear"></div>
-
-						</div>
-
-						<div class="article">
-
-							<h2>
-								<a href="#">国际</a>
-							</h2>
-							<table width="90%" border="0" align="center"
-								style="margin-left: 30px">
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										aaaaaa
-									</td>
-									<td width="10%">
-										2012-02-12
-									</td>
-								</tr>
-							</table>
-							<a href="servlet/qiantaixw01" class="more">MORE</a>
-
-							<div class="clear"></div>
-
-						</div>
-
-						<div class="article">
-
-							<h2>
-								<a href="#">军事</a>
-							</h2>
-							<table width="90%" border="0" align="center"
-								style="margin-left: 30px">
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										aaaaaa
-									</td>
-									<td width="10%">
-										2012-02-12
-									</td>
-								</tr>
-							</table>
-							<a href="servlet/qiantaixw02" class="more">MORE</a>
-
-							<div class="clear"></div>
-
-						</div>
-
-						<div class="article">
-
-							<h2>
-								<a href="#">财经</a>
-							</h2>
-							<table width="90%" border="0" align="center"
-								style="margin-left: 30px">
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										aaaaaa
-									</td>
-									<td width="10%">
-										2012-02-12
-									</td>
-								</tr>
-							</table>
-							<a href="servlet/qiantaixw03" class="more">MORE</a>
-
 							<div class="clear"></div>
 
 						</div>

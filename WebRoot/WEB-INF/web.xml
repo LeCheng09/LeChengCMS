@@ -4,6 +4,61 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>qiantaixw</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.qiantaixw</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>qiantaixw01</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.qiantaixw01</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>qiantaixw02</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.qiantaixw02</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>qiantaixw03</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.qiantaixw03</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelectContentServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.SelectContentServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>qiantaixw</servlet-name>
+    <url-pattern>/servlet/qiantaixw</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>qiantaixw01</servlet-name>
+    <url-pattern>/servlet/qiantaixw01</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>qiantaixw02</servlet-name>
+    <url-pattern>/servlet/qiantaixw02</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>qiantaixw03</servlet-name>
+    <url-pattern>/servlet/qiantaixw03</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectContentServlet</servlet-name>
+    <url-pattern>/servlet/SelectContentServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
