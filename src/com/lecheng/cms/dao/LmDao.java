@@ -38,7 +38,7 @@ public class LmDao {
 	
 	 public ArrayList<LmPojo> selectlm(){
 			ArrayList<LmPojo> list = new ArrayList<LmPojo>();
-			String sql = "SELECT * FROM cms";
+			String sql = "SELECT * FROM lm";
 			conn = db.getConn();
 			try{
 				ps = conn.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class LmDao {
 		public int DelLm( int id){
 			
 			conn = db.getConn();
-			String sql = "DELETE FROM cms WHERE id = ?";
+			String sql = "DELETE FROM lm WHERE id = ?";
 			int rst = 0;
 			try{
 				ps = conn.prepareStatement(sql);
@@ -75,7 +75,7 @@ public class LmDao {
 		}
 		public int UpdateLm(int id,String name) {
 			conn = db.getConn();
-			String sql = " UPDATE cms SET lmname = ? WHERE id=?";
+			String sql = " UPDATE lm SET lmname = ? WHERE id=?";
 			int rst = 0;
 			try{
 				ps = conn.prepareStatement(sql);
