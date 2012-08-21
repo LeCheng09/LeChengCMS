@@ -16,15 +16,14 @@ public class LmDao {
 	private static PreparedStatement ps;
     DataBase db = new DataBase();
 	
-	public boolean InsertLm(int id, String name){
-		String sql = "INSERT INTO cms (id,lmname) VALUES (?,?)";		
+	public boolean InsertLm( String name){
+		String sql = "INSERT INTO lm (lmname) VALUES (?)";		
 		boolean flag = false;
 		int ren = 0;
 		conn = db.getConn();
 		try{
 			ps = conn.prepareStatement(sql);
-		    ps.setInt(1, id);
-			ps.setString(2, name);
+			ps.setString(1, name);
 			db.closeConn(null, ps, conn);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
