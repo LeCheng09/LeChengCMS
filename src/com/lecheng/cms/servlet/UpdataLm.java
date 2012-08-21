@@ -13,10 +13,10 @@ import com.lecheng.cms.dao.LmDao;
 
 
 
-public class DelLmServlet extends HttpServlet {
+public class UpdataLm extends HttpServlet {
 
 	
-	public DelLmServlet() {
+	public UpdataLm() {
 		super();
 	}
 
@@ -24,11 +24,10 @@ public class DelLmServlet extends HttpServlet {
 		super.destroy(); 
 	}
 
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		this.doPost(request, response);
+         this.doPost(request, response);
+		
 	}
 
 	
@@ -37,10 +36,11 @@ public class DelLmServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
-		
+		String name = request.getParameter("name");
 		LmDao ld = new LmDao();
 		int rs;
-		rs = ld.DelLm(id);
+		rs = ld.UpdateLm(id, name);
+		
 		request.setAttribute("rs", rs);
 		RequestDispatcher dp = request.getRequestDispatcher("链接");  //请求转发
 		dp.forward(request, response); 
@@ -48,7 +48,7 @@ public class DelLmServlet extends HttpServlet {
 
 	
 	public void init() throws ServletException {
-		// Put your code here
+		
 	}
 
 }
