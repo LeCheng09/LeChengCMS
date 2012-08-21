@@ -49,9 +49,7 @@ public class LmDao {
 					lp.setLmname(rs.getString(2));
 					list.add(lp);
 				}
-				rs.close();
-				ps.close();
-				conn.close();
+				db.closeConn(rs, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
@@ -66,8 +64,7 @@ public class LmDao {
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, id);
 				rst = ps.executeUpdate();
-				ps.close();
-				conn.close();
+				db.closeConn(null, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
@@ -82,8 +79,7 @@ public class LmDao {
 				ps.setInt(1, id);
 				ps.setString(2, name);
 				rst = ps.executeUpdate();
-				ps.close();
-				conn.close();
+				db.closeConn(null, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
