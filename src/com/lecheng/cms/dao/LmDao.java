@@ -36,8 +36,8 @@ public class LmDao {
 		return flag;
 		}
 	
-	 public ArrayList<LmDao> selectlm(){
-			ArrayList<LmDao> list = new ArrayList<LmDao>();
+	 public ArrayList<LmPojo> selectlm(){
+			ArrayList<LmPojo> list = new ArrayList<LmPojo>();
 			String sql = "SELECT * FROM cms";
 			conn = db.getConn();
 			try{
@@ -47,6 +47,7 @@ public class LmDao {
 					LmPojo lp = new LmPojo();
 			        lp.setId(rs.getInt(1));
 					lp.setLmname(rs.getString(2));
+					list.add(lp);
 				}
 				rs.close();
 				ps.close();
