@@ -67,9 +67,6 @@ public class NewsPublishServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		String idx = request.getParameter("newsid");
-		int id = Integer.parseInt(idx);
-		System.out.println("新闻编号：" + id);
 
 		String title = request.getParameter("title");
 		System.out.println("主标题：" + title);
@@ -97,7 +94,7 @@ public class NewsPublishServlet extends HttpServlet {
 		boolean flag = true;
 		NewsPublishDAO npd = new NewsPublishDAO();
 
-		flag = npd.Publish(id, title, sec_title, time, author, userid, lmid,
+		flag = npd.Publish(title, sec_title, time, author, userid, lmid,
 				content);
 		if (flag) {
 			response.sendRedirect("../NewsPublishSuccess.jsp"); //
