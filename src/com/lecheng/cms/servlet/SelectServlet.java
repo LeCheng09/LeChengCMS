@@ -1,7 +1,6 @@
 package com.lecheng.cms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -31,15 +30,12 @@ public class SelectServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//
-			String str;
-		//
 		    ArrayList<LmPojo> list = new ArrayList<LmPojo>();
 			request.setCharacterEncoding("UTF-8");
 			LmDao id = new LmDao();
 			list = id.selectlm();
 			request.setAttribute("mylist", list);
-			RequestDispatcher dp = request.getRequestDispatcher("/LmUser.jsp");  //请求转发
+			RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp");  //请求转发
 			dp.forward(request, response);
 	}
 
