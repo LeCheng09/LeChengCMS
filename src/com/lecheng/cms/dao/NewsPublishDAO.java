@@ -3,9 +3,12 @@ package com.lecheng.cms.dao;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import com.lecheng.cms.base.DataBase;
 import com.lecheng.cms.pojo.LmPojo;
 import com.lecheng.cms.pojo.NewsPojo;
+import com.lecheng.cms.pojo.SysPojo;
 
 public class NewsPublishDAO {
 	private Connection conn;
@@ -66,4 +69,6 @@ public class NewsPublishDAO {
 		}
 		return list;
 	}
+	
+	
 }

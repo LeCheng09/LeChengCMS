@@ -49,9 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 
 				 <tr>
 					<td nowrap align="right" width="11%">
-						新闻标题	：				</td>
+						新闻标题：				</td>
 					<td width="27%"><input type="text" maxlength="25" name="title"></td>
-					<td nowrap align="right" width="11%">新闻副标题： </td>
+					<td nowrap align="right" width="11%">副标题： </td>
 					<td width="27%"><input type="text" maxlength="25" name="sec_title"></td>
 				</tr>
 				<tr>
@@ -68,7 +68,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td nowrap align="right" width="11%">发布账号： </td>
-					<td width="27%"><input type="text" maxlength="11" name="userid"></td>
+					<td width="27%">
+					
+					 <%
+							//String userid = session.getAttribute("id").toString();
+							//int uid = Integer.parseInt(userid);
+							
+							//out.println("<input type='text' maxlength='11' readonly='readonly' name='userid' value='"+uid+"'>");
+						 %>
+					</td>
 					<td nowrap align="right" width="11%">栏目编号： </td>
 					<td width="27%"><select name="lmid">
                       <option value="0" disabled="disabled" selected="selected"> 请选择栏目编号： </option>
