@@ -59,13 +59,13 @@ public class qiantaixw02 extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		qiantailm qtlm = new qiantailm();//¶¨ÒåCusSelectBean¶ÔÏó
-		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//¶¨Òå¼¯ºÏ¶ÔÏó
-		list = qtlm.selectlm02();//µ÷ÓÃ²éÑ¯µÄ·½·¨
+		qiantailm qtlm = new qiantailm();//å®šä¹‰CusSelectBeanå¯¹è±¡
+		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//å®šä¹‰é›†åˆå¯¹è±¡
+		list = qtlm.selectlm02();//è°ƒç”¨æŸ¥è¯¢çš„æ–¹æ³•
 		request.setAttribute("list", list);
-		HttpSession session = request.getSession();//ÔÚservletÖĞµÄÃ»ÓĞsessionËùÒÔĞèÒªÏÈÊµÀı»¯Õâ¸öµÄsession¶ÔÏó
-		session.setAttribute("list", list);//°ÑÉÏ±ßµÄ¼¯ºÏ´æ·ÅÔÚsession·¶Î§ÄÚ
-		response.sendRedirect("../xianshinews02.jsp");//Ìø×ªµ½Ç°Ì¨Ò³Ãæ
+		HttpSession session = request.getSession();//åœ¨servletä¸­çš„æ²¡æœ‰sessionæ‰€ä»¥éœ€è¦å…ˆå®ä¾‹åŒ–è¿™ä¸ªçš„sessionå¯¹è±¡
+		session.setAttribute("list", list);//æŠŠä¸Šè¾¹çš„é›†åˆå­˜æ”¾åœ¨sessionèŒƒå›´å†…
+		response.sendRedirect("../xianshinews02.jsp");//è·³è½¬åˆ°å‰å°é¡µé¢
 	}
 
 	/**

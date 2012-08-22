@@ -1,8 +1,8 @@
 package com.lecheng.cms.pojo;
 
 public class qiantaixinwenPojo {
-		private String title;
-		private String time;
+		private String title;//新闻标题
+		private String time;//新闻发布时间
 		public String getTitle() {
 			return title;
 		}

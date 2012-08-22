@@ -30,7 +30,7 @@
 				<div id="quicknav">
 					<a href="index.jsp">首页</a>
 					<a href="#">联系</a>
-					<a href="#">登录系统</a>
+					<a href="login.html">登录系统</a>
 				</div>
 
 				<!-- Search -->
@@ -57,16 +57,16 @@
 					</li>
 					<!-- Active link -->
 					<li>
-						<a href="#">国内</a>
+						<a href="xianshinews.jsp">国内</a>
 					</li>
 					<li>
-						<a href="#">国际</a>
+						<a href="xianshinews01.jsp">国际</a>
 					</li>
 					<li>
-						<a href="#">军事</a>
+						<a href="xianshinews02.jsp">军事</a>
 					</li>
 					<li>
-						<a href="#">财经</a>
+						<a href="xianshinews03.jsp">财经</a>
 					</li>
 					<li>
 						<a href="#">互联网</a>

@@ -2,7 +2,7 @@ package com.lecheng.cms.pojo;
 
 public class SelectContentPojo {
 
-	private String content;//ĞÂÎÅÄÚÈİ
+	private String content;//æ–°é—»å†…å®¹
 
 	public String getContent() {
 		return content;

@@ -16,12 +16,12 @@ public class qiantailm {
 	private static PreparedStatement ps;
     DataBase db = new DataBase();
     /**
-     * ¹úÄÚµÄËùÓĞĞÂÎÅ
+     * å›½å†…çš„æ‰€æœ‰æ–°é—»
      * @return
      */
 	public ArrayList<qiantaixinwenPojo> selectlm(){
 		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();
-		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='¹úÄÚ'";
+		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='å›½å†…'";
 		conn = db.getConn();
 		try{
 			ps = conn.prepareStatement(sql);
@@ -42,12 +42,12 @@ public class qiantailm {
 		return list;
 	}
 	/**
-	 * ¹ú¼ÊµÄËùÓĞĞÂÎÅ
+	 * å›½é™…çš„æ‰€æœ‰æ–°é—»
 	 * @return
 	 */
 	public ArrayList<qiantaixinwenPojo> selectlm01(){
 		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();
-		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='¹ú¼Ê'";
+		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='å›½é™…'";
 		conn = db.getConn();
 		try{
 			ps = conn.prepareStatement(sql);
@@ -69,12 +69,12 @@ public class qiantailm {
 	}
 
 	/**
-	 * ¾üÊÂµÄËùÓĞĞÂÎÅ
+	 * å†›äº‹çš„æ‰€æœ‰æ–°é—»
 	 * @return
 	 */
 	public ArrayList<qiantaixinwenPojo> selectlm02(){
 		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();
-		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='¾üÊÂ'";
+		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='å†›äº‹'";
 		conn = db.getConn();
 		try{
 			ps = conn.prepareStatement(sql);
@@ -97,12 +97,12 @@ public class qiantailm {
 
 	
 	/**
-	 * ²Æ¾­µÄËùÓĞĞÂÎÅ
+	 * è´¢ç»çš„æ‰€æœ‰æ–°é—»
 	 * @return
 	 */
 	public ArrayList<qiantaixinwenPojo> selectlm03(){
 		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();
-		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='²Æ¾­'";
+		String sql = "SELECT news.title,news.time FROM news,lm WHERE news.lmid = lm.id AND lm.lmname='è´¢ç»'";
 		conn = db.getConn();
 		try{
 			ps = conn.prepareStatement(sql);

@@ -14,7 +14,7 @@ public class SelectContentDao {
 	private static ResultSet rs;
 	private static PreparedStatement ps;
 	/**
-	 * 得到新闻的全部内容
+	 * 鏌ョ湅澶存潯鏂伴椈
 	 * @return
 	 */
 	public String SelectContent(){
