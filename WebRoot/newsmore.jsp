@@ -26,7 +26,7 @@
         <div id="quicknav">
           <a href="index.jsp">首页</a>
           <a href="#">联系</a>
-          <a href="login.html">登录系统</a>
+          <a href="Login.jsp">登录系统</a>
         </div>
         
         <!-- Search -->
@@ -48,17 +48,31 @@
       <div id="nav" class="box">
          <ul>
           <li id="active"><a href="index.jsp">首页</a></li> <!-- Active link -->
-          <li><a href="xianshinews.jsp">国内</a></li>
-          <li><a href="xianshinews01.jsp">国际</a></li>
-			<li><a href="xianshinews02.jsp">军事</a></li>
-			<li><a href="xianshinews03.jsp">财经</a></li>
-			<li><a href="#">互联网</a></li>
-			<li><a href="#">房产</a></li>
-			<li><a href="#">汽车</a></li>
-			<li><a href="#">体育</a></li>
-			<li><a href="#">娱乐</a></li>
-			<li><a href="#">游戏</a></li>
-			<li><a href="#">教育</a></li>
+          <li><a href="servlet/QianTaiNewsServlet?lmname=1">国内</a></li>
+          <li><a href="servlet/QianTaiNewsServlet?lmname=2">国际</a></li>
+			<li><a href="servlet/QianTaiNewsServlet?lmname=3">军事</a></li>
+			<li><a href="servlet/QianTaiNewsServlet?lmname=4">财经</a></li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=5">互联网</a>
+					</li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=6">房产</a>
+					</li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=7">汽车</a>
+					</li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=8">体育</a>
+					</li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=9">娱乐</a>
+					</li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=10">游戏</a>
+					</li>
+					<li>
+						<a href="servlet/QianTaiNewsServlet?lmname=11">教育</a>
+					</li>
 		</ul>
         <hr class="noscreen" />
       </div> 
@@ -82,49 +96,86 @@
         
         <!-- Right sidebox -->
         <div id="panel-right" class="box panel">
-          <div id="bottom">
-          <div class="in">
-          <strong class="title">关于我们</strong>
-          <div class="f-left about-img"><img src="./tmp/about.jpg" alt="about.jpg" title="about me" /><div></div></div>
-          <p class="f-left about-me">
-          <em>Name Surname</em>
-          "Lorem ipsum dolor sit 
-          amet, consectetuer adip
-          iscing elit, sed diam non
-          ummy nibh euismod 
-          tincidunt u”
-          </p>
-          <div class="clear"></div>
-          <br />
-          
-          <strong class="title">友情链接</strong>
-          <ul>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Art &amp; Photography</a></li>
-            <li><a href="#">Communications</a></li>
-            <li><a href="#">Fashion</a></li>
-            <li><a href="#">Hosting</a></li>
-            <li><a href="#">Interior &amp; Furniture</a></li>
-            <li><a href="#">Music</a></li>
-            <li><a href="#">Real Estate</a></li>
-            <li><a href="#">Sport</a></li>
-            <li><a href="#">Travel</a></li>
-            <li><a href="#">Web design</a></li>
-          </ul>
-          
-          <strong class="title">Entries by month</strong>
-          <ul>
-            <li><a href="#">August 2008 (38)</a></li>
-            <li><a href="#">July 2008 (81)</a></li>
-            <li><a href="#">June 2008 (58)</a></li>
-            <li><a href="#">May 2008 (60)</a></li>
-            <li><a href="#">April 2008 (68)</a></li>
-            <li><a href="#">March 2008 (82)</a></li>
-            <li><a href="#">February 2008 (36)</a></li>
-          </ul>
-          
-          </div>
-          </div>
+					<div id="bottom">
+						<div class="in">
+							<strong class="title">关于我们</strong>
+							<div class="f-left about-img">
+								<img src="./tmp/about.jpg" alt="about.jpg" title="about me" />
+								<div></div>
+							</div>
+							<p class="f-left about-me">
+								<em>乐成科技 </em>石家庄乐成科技有限公司 乐成科技是一家it服务的优秀提供商，
+								致力于打造为客户提供it服务整体解决方案的核心竞争优势，
+								是河北最大的it服务提供商之一
+							</p>
+							<div class="clear"></div>
+							<br />
+
+							<strong class="title">友情链接</strong>
+							<ul>
+								<li>
+									<a href="http://www.sjziei.com/">信息工程学院</a>
+								</li>
+								<li>
+									<a href="http://www.hebau.edu.cn/">河北农业大学</a>
+								</li>
+								<li>
+									<a href="http://www.hbu.edu.cn/">河北大学</a>
+								</li>
+								<li>
+									<a href="http://www.sjzc.edu.cn/">石家庄学院</a>
+								</li>
+								<li>
+									<a href="http://www.heuet.edu.cn/">经贸大学</a>
+								</li>
+								<li>
+									<a href="http://www.hebnzxy.com/">女子学院</a>
+								</li>
+								<li>
+									<a href="http://www.kjxinxiedu.com/">科技信息职业学院</a>
+								</li>
+								<li>
+									<a href="www.ibm.com.cn ">IBM</a>
+								</li>
+								<li>
+									<a href="http://www.sinosoft.com.cn/">中科软</a>
+								</li>
+								<li>
+									<a href="http://www.sinodata.net.cn/">中科金财</a>
+								</li>
+								<li>
+									<a href="http://www.tyfoo.com/">泛思</a>
+								</li>
+							</ul>
+
+							<strong class="title">培训项目</strong>
+							<ul>
+								<li>
+									<a href="#">Java开发</a>
+								</li>
+								<li>
+									<a href="#">Java Web 开发</a>
+								</li>
+								<li>
+									<a href="#">Android 系统开发</a>
+								</li>
+								<li>
+									<a href="#">Java 和 Web</a>
+								</li>
+								<li>
+									<a href="#">Java 和 Android</a>
+								</li>
+								<li>
+									<a href="#">Java Web 和 Android</a>
+								</li>
+								<li>
+									<a href="#">Java、Java Web、Android</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
         </div>
         <!-- end/ Right sidebox -->
       
