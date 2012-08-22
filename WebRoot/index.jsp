@@ -27,7 +27,7 @@
 
 				<!-- Quick nav -->
 				<div id="quicknav">
-					<a href="#">首页</a>
+					<a href="index.jsp">首页</a>
 					<a href="#">联系</a>
 					<a href="#">登录系统</a>
 				</div>
@@ -131,7 +131,7 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										aaaaaa
+										江苏清交通隐患 客货运司机1年超速3次要解聘
 									</td>
 									<td width="10%">
 										2012-02-12
@@ -155,7 +155,7 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										aaaaaa
+										菲律宾搜救人员发现坠机落海内政部长尸体 
 									</td>
 									<td width="10%">
 										2012-02-12
@@ -180,7 +180,7 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										aaaaaa
+										日本抢岛将多样化 中国宜尽早全方位应对考虑 
 									</td>
 									<td width="10%">
 										2012-02-12
@@ -205,7 +205,7 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										aaaaaa
+										2015年 磁条银行卡全面退市
 									</td>
 									<td width="10%">
 										2012-02-12
