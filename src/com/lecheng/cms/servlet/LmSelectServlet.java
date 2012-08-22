@@ -66,6 +66,7 @@ public class LmSelectServlet extends HttpServlet {
 		
 		ArrayList<LmPojo> list = new ArrayList<LmPojo>();
 		list = npd.Selectlm();
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("selectlist", list);
 		response.sendRedirect("../NewsPublishView.jsp");

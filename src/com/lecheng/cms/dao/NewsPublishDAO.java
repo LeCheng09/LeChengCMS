@@ -3,9 +3,12 @@ package com.lecheng.cms.dao;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import com.lecheng.cms.base.DataBase;
 import com.lecheng.cms.pojo.LmPojo;
 import com.lecheng.cms.pojo.NewsPojo;
+import com.lecheng.cms.pojo.SysPojo;
 
 public class NewsPublishDAO {
 	private Connection conn;
@@ -14,24 +17,23 @@ public class NewsPublishDAO {
 
 	DataBase db = new DataBase();
 
-	public boolean Publish(int id, String title, String sec_title, String time,
+	public boolean Publish(String title, String sec_title, String time,
 			String author, int userid, int lmid, String content) {
 
-		String sql = "INSERT INTO news(id, title, sec_title, time, author, userid, lmid, content) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO news(title, sec_title, time, author, userid, lmid, content) VALUES (?,?,?,?,?,?,?)";
 		boolean flag = false;
 		int info = 0;
 		conn = db.getConn();
 
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, id);
-			ps.setString(2, title);
-			ps.setString(3, sec_title);
-			ps.setString(4, time);
-			ps.setString(5, author);
-			ps.setInt(6, userid);
-			ps.setInt(7, lmid);
-			ps.setString(8, content);
+			ps.setString(1, title);
+			ps.setString(2, sec_title);
+			ps.setString(3, time);
+			ps.setString(4, author);
+			ps.setInt(5, userid);
+			ps.setInt(6, lmid);
+			ps.setString(7, content);
 
 			info = ps.executeUpdate();
 
@@ -67,4 +69,6 @@ public class NewsPublishDAO {
 		}
 		return list;
 	}
+	
+	
 }
