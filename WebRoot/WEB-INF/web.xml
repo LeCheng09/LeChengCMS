@@ -47,6 +47,18 @@
     <servlet-name>SelectContentServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.SelectContentServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LmSelectServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.LmSelectServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewsPublishServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.NewsPublishServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>qiantaixw</servlet-name>
@@ -75,6 +87,14 @@
   <servlet-mapping>
     <servlet-name>UpdataLm</servlet-name>
     <url-pattern>/servlet/UpdataLm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LmSelectServlet</servlet-name>
+    <url-pattern>/servlet/LmSelectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsPublishServlet</servlet-name>
+    <url-pattern>/servlet/NewsPublishServlet</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
