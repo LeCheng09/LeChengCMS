@@ -4,6 +4,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	  <!-- 2.4版FCKeditor配置 -->
+  	<servlet>
+	   <servlet-name>Connector</servlet-name>
+	   <servlet-class>
+	    com.lecheng.cms.servlet.ConnectorServlet 
+	    <!-- net.fckeditor.connector.ConnectorServlet  -->  
+	    
+	   </servlet-class>
+	   <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>Connector</servlet-name>
+	   <url-pattern>
+	    /fckeditor/editor/filemanager/connectors/*
+	   </url-pattern>
+	</servlet-mapping>
+	
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
