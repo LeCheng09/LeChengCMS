@@ -11,12 +11,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 
 		<title>My JSP 'NewsPublishView.jsp' starting page</title>
+		<link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 		<script type="text/javascript" language="javascript">
     	function back(){
-    		window.location.href="";
+    		window.history.go(-1);
     	}
     </script>
-
+		<style type="text/css">
+<!--
+.atten {
+	font-size: 12px;
+	font-weight: normal;
+	color: #F00;
+}
+-->
+</style>
 	</head>
 
 	<body>
@@ -25,14 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</h2>
 		<form method="post" action="servlet/NewsPublishServlet">
 			<table align="center" cellpadding="20" cellspacing="2" border="10">
-				<tr>
-					<td align="center">
-						新闻编号
-					</td>
-					<td align="center">
-						<input type="text" maxlength="11" name="newsid">
-					</td>
-				</tr>
+				
 				<tr>
 					<td align="center">
 						新闻标题
