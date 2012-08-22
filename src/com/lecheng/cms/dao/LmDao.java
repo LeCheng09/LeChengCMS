@@ -16,15 +16,14 @@ public class LmDao {
 	private static PreparedStatement ps;
     DataBase db = new DataBase();
 	
-	public boolean InsertLm(String id, String name){
-		String sql = "INSERT INTO cms (id,lmname) VALUES (?,?)";		
+	public boolean InsertLm( String name){
+		String sql = "INSERT INTO lm (lmname) VALUES (?)";		
 		boolean flag = false;
 		int ren = 0;
 		conn = db.getConn();
 		try{
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, id);
-			ps.setString(2, name);
+			ps.setString(1, name);
 			db.closeConn(null, ps, conn);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
@@ -36,9 +35,9 @@ public class LmDao {
 		return flag;
 		}
 	
-	 public ArrayList<LmDao> selectlm(){
-			ArrayList<LmDao> list = new ArrayList<LmDao>();
-			String sql = "SELECT * FROM cms";
+	 public ArrayList<LmPojo> selectlm(){
+			ArrayList<LmPojo> list = new ArrayList<LmPojo>();
+			String sql = "SELECT * FROM lm";
 			conn = db.getConn();
 			try{
 				ps = conn.prepareStatement(sql);
@@ -47,10 +46,9 @@ public class LmDao {
 					LmPojo lp = new LmPojo();
 			        lp.setId(rs.getInt(1));
 					lp.setLmname(rs.getString(2));
+					list.add(lp);
 				}
-				rs.close();
-				ps.close();
-				conn.close();
+				db.closeConn(rs, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
@@ -59,14 +57,13 @@ public class LmDao {
 		public int DelLm( int id){
 			
 			conn = db.getConn();
-			String sql = "DELETE FROM cms WHERE id = ?";
+			String sql = "DELETE FROM lm WHERE id = ?";
 			int rst = 0;
 			try{
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, id);
 				rst = ps.executeUpdate();
-				ps.close();
-				conn.close();
+				db.closeConn(null, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
@@ -74,15 +71,14 @@ public class LmDao {
 		}
 		public int UpdateLm(int id,String name) {
 			conn = db.getConn();
-			String sql = " UPDATE cms SET lmname = ? WHERE id=?";
+			String sql = " UPDATE lm SET lmname = ? WHERE id=?";
 			int rst = 0;
 			try{
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, id);
 				ps.setString(2, name);
 				rst = ps.executeUpdate();
-				ps.close();
-				conn.close();
+				db.closeConn(null, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
