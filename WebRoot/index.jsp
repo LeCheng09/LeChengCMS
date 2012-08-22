@@ -10,7 +10,6 @@
 	<body>
 		<!-- Layout -->
 		<div id="layout">
-
 			<!-- Header -->
 			<div id="header">
 

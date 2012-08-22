@@ -58,7 +58,7 @@
 			<li><a href="#">体育</a></li>
 			<li><a href="#">娱乐</a></li>
 			<li><a href="#">游戏</a></li>
-			<li><a href="#">武术</a></li>
+			<li><a href="#">教育</a></li>
 		</ul>
         <hr class="noscreen" />
       </div> 
