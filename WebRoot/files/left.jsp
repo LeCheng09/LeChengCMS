@@ -145,7 +145,7 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu18" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-					<a href="listtakexiaoxi.htm" target="mainFrame" class="left-font03" onClick="tupian('18');">栏目列表</a></td>
+					<a href="../servlet/SelectServlet" target="mainFrame" class="left-font03" onClick="tupian('18');">栏目列表</a></td>
 				</tr>
       </table>
 		<!--  消息系统结束    -->
