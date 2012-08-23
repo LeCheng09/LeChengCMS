@@ -32,13 +32,17 @@ public class QianTaiNewsServlet extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
-	 *
+	 * 
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -48,42 +52,47 @@ public class QianTaiNewsServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * This method is called when a form has its tag value method equals to
+	 * post.
+	 * 
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("utf-8");
 		String lmname = request.getParameter("lmname");
-		
-		if(lmname.equals("1")){
-			lmname="国内";
-		}else if(lmname.equals("2")){
-			lmname="国际";
-		}else if(lmname.equals("3")){
-			lmname="军事";
-		}else if(lmname.equals("4")){
-			lmname="财经";
-		}else if(lmname.equals("5")){
-			lmname="互联网";
-		}else if(lmname.equals("6")){
-			lmname="房产";
-		}else if(lmname.equals("7")){
-			lmname="汽车";
-		}else if(lmname.equals("8")){
-			lmname="体育";
-		}else if(lmname.equals("9")){
-			lmname="娱乐";
-		}else if(lmname.equals("10")){
-			lmname="游戏";
-		}else if(lmname.equals("11")){
-			lmname="教育";
+
+		if (lmname.equals("1")) {
+			lmname = "国内";
+		} else if (lmname.equals("2")) {
+			lmname = "国际";
+		} else if (lmname.equals("3")) {
+			lmname = "军事";
+		} else if (lmname.equals("4")) {
+			lmname = "财经";
+		} else if (lmname.equals("5")) {
+			lmname = "互联网";
+		} else if (lmname.equals("6")) {
+			lmname = "房产";
+		} else if (lmname.equals("7")) {
+			lmname = "汽车";
+		} else if (lmname.equals("8")) {
+			lmname = "体育";
+		} else if (lmname.equals("9")) {
+			lmname = "娱乐";
+		} else if (lmname.equals("10")) {
+			lmname = "游戏";
+		} else if (lmname.equals("11")) {
+			lmname = "教育";
 		}
 		QianTaiLm qtlm = new QianTaiLm();
 		ArrayList<QianTaiXinWenPojo> list = new ArrayList<QianTaiXinWenPojo>();
@@ -96,8 +105,9 @@ public class QianTaiNewsServlet extends HttpServlet {
 
 	/**
 	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
+	 * 
+	 * @throws ServletException
+	 *             if an error occurs
 	 */
 	public void init() throws ServletException {
 		// Put your code here

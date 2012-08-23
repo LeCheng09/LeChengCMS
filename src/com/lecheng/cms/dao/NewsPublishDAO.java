@@ -49,8 +49,8 @@ public class NewsPublishDAO {
 		}
 		return flag;
 	}
-	
-	public ArrayList<LmPojo> Selectlm(){
+
+	public ArrayList<LmPojo> Selectlm() {
 		ArrayList<LmPojo> list = new ArrayList<LmPojo>();
 		String sql = "SELECT * FROM lm";
 		conn = db.getConn();
@@ -69,6 +69,5 @@ public class NewsPublishDAO {
 		}
 		return list;
 	}
-	
-	
+
 }

@@ -115,7 +115,7 @@
 						</div>
 
 						<div class="article">
-
+							<% %>
 							<h2>
 								<a href="servlet/QianTaiNewsServlet?lmname=1">国内</a>
 							</h2>
@@ -123,6 +123,7 @@
 					<form action="">
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px" border="1px">
+								<c:forEach items="${mylist}" var="temp" >
 								<tr>
 									<td width="2%">
 										<img src="img/arr.gif" alt="" width="3" height="6" />
@@ -145,6 +146,7 @@
 										2012-08-21
 									</td>
 								</tr>
+								</c:forEach>
 							</table></form>
 							<a href="servlet/QianTaiNewsServlet?lmname=1" class="more">MORE</a>
 							<div class="clear"></div>

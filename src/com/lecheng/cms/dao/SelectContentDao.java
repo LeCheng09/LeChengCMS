@@ -13,24 +13,26 @@ public class SelectContentDao {
 	private static Connection conn;
 	private static ResultSet rs;
 	private static PreparedStatement ps;
+
 	/**
 	 * 查看头条新闻
+	 * 
 	 * @return
 	 */
-	public String SelectContent(){
+	public String SelectContent() {
 		DataBase db = new DataBase();
 		conn = db.getConn();
 		String sql = "SELECT content FROM news WHERE id=2";
 		String str = "";
-		try{
+		try {
 			ps = conn.prepareStatement(sql);
-			rs = ps.executeQuery();	
-			
-			if(rs.next()){
-				str = rs.getString(1);				
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				str = rs.getString(1);
 			}
 			db.closeConn(rs, ps, conn);
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return str;
