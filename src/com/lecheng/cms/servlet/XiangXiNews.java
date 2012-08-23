@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lecheng.cms.dao.qiantailm;
-import com.lecheng.cms.pojo.qiantaixinwenPojo;
+import com.lecheng.cms.dao.XiangXiNewsDao;
+import com.lecheng.cms.pojo.XiangXiNewsPojo;
 
-public class qiantaixw03 extends HttpServlet {
+public class XiangXiNews extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public qiantaixw03() {
+	public XiangXiNews() {
 		super();
 	}
 
@@ -58,14 +58,14 @@ public class qiantaixw03 extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		qiantailm qtlm = new qiantailm();//定义CusSelectBean对象
-		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//定义集合对象
-		list = qtlm.selectlm03();//调用查询的方法
-		request.setAttribute("list", list);
-		HttpSession session = request.getSession();//在servlet中的没有session所以需要先实例化这个的session对象
-		session.setAttribute("list", list);//把上边的集合存放在session范围内
-		response.sendRedirect("../xianshinews.jsp");//跳转到前台页面
+		HttpSession session = request.getSession();
+		XiangXiNewsDao xxnd = new XiangXiNewsDao();
+		request.setCharacterEncoding("UTF-8");
+		int id = Integer.parseInt(request.getParameter("id"));
+		ArrayList<XiangXiNewsPojo> list = xxnd.selectlm(id);
+		session.setAttribute("mylist", list);
+		response.sendRedirect("../xiangxinews.jsp");
+		
 	}
 
 	/**

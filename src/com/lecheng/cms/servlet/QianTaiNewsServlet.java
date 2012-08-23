@@ -4,23 +4,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lecheng.cms.dao.qiantailm;
-import com.lecheng.cms.pojo.qiantaixinwenPojo;
+import com.lecheng.cms.dao.QianTaiLm;
+import com.lecheng.cms.pojo.QianTaiXinWenPojo;
 
-
-public class qiantaixw extends HttpServlet {
+public class QianTaiNewsServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public qiantaixw() {
+	public QianTaiNewsServlet() {
 		super();
 	}
 
@@ -61,13 +59,39 @@ public class qiantaixw extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		qiantailm qtlm = new qiantailm();//¶¨ÒåCusSelectBean¶ÔÏó
-		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//¶¨Òå¼¯ºÏ¶ÔÏó
-		list = qtlm.selectlm();//µ÷ÓÃ²éÑ¯µÄ·½·¨
-		request.setAttribute("list", list);
-		HttpSession session = request.getSession();//ÔÚservletÖĞµÄÃ»ÓĞsessionËùÒÔĞèÒªÏÈÊµÀı»¯Õâ¸öµÄsession¶ÔÏó
-		session.setAttribute("list", list);//°ÑÉÏ±ßµÄ¼¯ºÏ´æ·ÅÔÚsession·¶Î§ÄÚ
-		response.sendRedirect("../xianshinews.jsp");//Ìø×ªµ½Ç°Ì¨Ò³Ãæ
+		request.setCharacterEncoding("utf-8");
+		String lmname = request.getParameter("lmname");
+		
+		if(lmname.equals("1")){
+			lmname="å›½å†…";
+		}else if(lmname.equals("2")){
+			lmname="å›½é™…";
+		}else if(lmname.equals("3")){
+			lmname="å†›äº‹";
+		}else if(lmname.equals("4")){
+			lmname="è´¢ç»";
+		}else if(lmname.equals("5")){
+			lmname="äº’è”ç½‘";
+		}else if(lmname.equals("6")){
+			lmname="æˆ¿äº§";
+		}else if(lmname.equals("7")){
+			lmname="æ±½è½¦";
+		}else if(lmname.equals("8")){
+			lmname="ä½“è‚²";
+		}else if(lmname.equals("9")){
+			lmname="å¨±ä¹";
+		}else if(lmname.equals("10")){
+			lmname="æ¸¸æˆ";
+		}else if(lmname.equals("11")){
+			lmname="æ•™è‚²";
+		}
+		QianTaiLm qtlm = new QianTaiLm();
+		ArrayList<QianTaiXinWenPojo> list = new ArrayList<QianTaiXinWenPojo>();
+		list = qtlm.selectlm04(lmname);
+		HttpSession session = request.getSession();
+		session.setAttribute("lmname", lmname);
+		session.setAttribute("mylist", list);
+		response.sendRedirect("../xianshinews.jsp");
 	}
 
 	/**

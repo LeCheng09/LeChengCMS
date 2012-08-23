@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 	<head>
@@ -28,7 +29,8 @@
 				<div id="quicknav">
 					<a href="index.jsp">首页</a>
 					<a href="#">联系</a>
-					<a href="#">登录系统</a>
+					<a href="Login.jsp">登录系统</a>
+					
 				</div>
 
 				<!-- Search -->
@@ -51,41 +53,34 @@
 			<div id="nav" class="box">
 				<ul>
 					<li id="active">
-						<a href="#">首页</a>
+					<a href="index.jsp">首页</a>
+						
 					</li>
 					<!-- Active link -->
+					<li><a href="servlet/QianTaiNewsServlet?lmname=1">国内</a></li>
+          <li><a href="servlet/QianTaiNewsServlet?lmname=2">国际</a></li>
+			<li><a href="servlet/QianTaiNewsServlet?lmname=3">军事</a></li>
+			<li><a href="servlet/QianTaiNewsServlet?lmname=4">财经</a></li>
 					<li>
-						<a href="#">国内</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=5">互联网</a>
 					</li>
 					<li>
-						<a href="#">国际</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=6">房产</a>
 					</li>
 					<li>
-						<a href="#">军事</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=7">汽车</a>
 					</li>
 					<li>
-						<a href="#">财经</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=8">体育</a>
 					</li>
 					<li>
-						<a href="#">互联网</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=9">娱乐</a>
 					</li>
 					<li>
-						<a href="#">房产</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=10">游戏</a>
 					</li>
 					<li>
-						<a href="#">汽车</a>
-					</li>
-					<li>
-						<a href="#">体育</a>
-					</li>
-					<li>
-						<a href="#">娱乐</a>
-					</li>
-					<li>
-						<a href="#">游戏</a>
-					</li>
-					<li>
-						<a href="#">教育</a>
+						<a href="servlet/QianTaiNewsServlet?lmname=11">教育</a>
 					</li>
 				</ul>
 				<hr class="noscreen" />
@@ -108,7 +103,11 @@
 									<div></div>
 								</div>
 								<p class="f-left">
-									客货运车辆有3个曝光未处理的立即停止使用、吸毒者30日内必须强制注销驾照、超速3次就会面临丢工作……8月20日，江苏省道路交通安全工作联席会议召开电视电话会议，全面部署推进江苏省道路交通安全隐患排查整治工作。会议要求，从现在起到10月底，在全省组织开展道路交通安全隐患排查整治工作，力争一次死亡3人以上交通事故明显减少，确保...
+									客货运车辆有3个曝光未处理的立即停止使用、吸毒者30日内必须强制注销驾照、超速3次就会面临丢工作……8月20日，
+									江苏省道路交通安全工作联席会议召开电视电话会议，全面部署推进江苏省道路交通安全隐患排查整治工作。
+									会议要求，从现在起到10月底，在全省组织开展道路交通安全隐患排查整治工作，力争一次死亡3人以上交通事故明显减少，
+									确保不发生一次死亡10人以......
+
 									<a href="servlet/SelectContentServlet" class="more">MORE</a>
 								</p>
 								<div class="clear"></div>
@@ -118,10 +117,10 @@
 						<div class="article">
 
 							<h2>
-								<a href="#">国内</a>
+								<a href="servlet/QianTaiNewsServlet?lmname=1">国内</a>
 							</h2>
 
-
+					<form action="">
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px" border="1px">
 								<tr>
@@ -129,7 +128,7 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										江苏清交通隐患 客货运司机1年超速3次要解聘
+										<a href="servlet/SelectTitleServlet?title=01">江苏清交通隐患 客货运司机1年超速3次要解聘</a>
 									</td>
 									<td width="10%">
 										2012-08-20
@@ -140,14 +139,14 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										中俄昨举行战略安全磋商
+										<a href="servlet/SelectTitleServlet?title=02">中俄昨举行战略安全磋商</a>
 									</td>
 									<td width="10%">
 										2012-08-21
 									</td>
 								</tr>
-							</table>
-							<a href="servlet/qiantaixw" class="more">MORE</a>
+							</table></form>
+							<a href="servlet/QianTaiNewsServlet?lmname=1" class="more">MORE</a>
 							<div class="clear"></div>
 
 						</div>
@@ -155,7 +154,7 @@
 						<div class="article">
 
 							<h2>
-								<a href="#">国际</a>
+								<a href="servlet/QianTaiNewsServlet?lmname=2">国际</a>
 							</h2>
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px">
@@ -164,7 +163,7 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										菲律宾搜救人员发现坠机落海内政部长尸体 
+										<a href="servlet/SelectTitleServlet?title=03">菲律宾搜救人员发现坠机落海内政部长尸体 </a>
 									</td>
 									<td width="10%">
 										2012-02-14
@@ -175,14 +174,14 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										委内瑞拉监狱骚乱超过20人死亡 
+										<a href="servlet/SelectTitleServlet?title=04">委内瑞拉监狱骚乱超过20人死亡 </a>
 									</td>
 									<td width="10%">
 										2012-08-09
 									</td>
 								</tr>
 							</table>
-							<a href="servlet/qiantaixw01" class="more">MORE</a>
+							<a href="servlet/QianTaiNewsServlet?lmname=2" class="more">MORE</a>
 
 							<div class="clear"></div>
 
@@ -191,7 +190,7 @@
 						<div class="article">
 
 							<h2>
-								<a href="#">军事</a>
+								<a href="servlet/QianTaiNewsServlet?lmname=3">军事</a>
 							</h2>
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px">
@@ -200,14 +199,25 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										日本抢岛将多样化 中国宜尽早全方位应对考虑 
+										<a href="servlet/SelectTitleServlet?title=05">日本抢岛将多样化 中国宜尽早全方位应对考虑 </a>
 									</td>
 									<td width="10%">
-										2012-02-12
+										2012-07-09
+									</td>
+								</tr>
+								<tr>
+									<td width="2%">
+										<img src="img/arr.gif" alt="" width="3" height="6" />
+									</td>
+									<td width="88%">
+										<a href="servlet/SelectTitleServlet?title=06">美日夺岛军演加强警备 日本变本加厉强化钓鱼岛控制</a>
+									</td>
+									<td width="10%">
+										2012-02-09
 									</td>
 								</tr>
 							</table>
-							<a href="servlet/qiantaixw02" class="more">MORE</a>
+							<a href="servlet/QianTaiNewsServlet?lmname=3" class="more">MORE</a>
 
 							<div class="clear"></div>
 
@@ -216,7 +226,7 @@
 						<div class="article">
 
 							<h2>
-								<a href="#">财经</a>
+								<a href="servlet/QianTaiNewsServlet?lmname=4">财经</a>
 							</h2>
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px">
@@ -225,14 +235,25 @@
 										<img src="img/arr.gif" alt="" width="3" height="6" />
 									</td>
 									<td width="88%">
-										2015年 磁条银行卡全面退市
+										<a href="servlet/SelectTitleServlet?title=07">2015年 磁条银行卡全面退市</a>
 									</td>
 									<td width="10%">
-										2012-02-12
+										2012-08-10
+									</td>
+								</tr>
+								<tr>
+									<td width="2%">
+										<img src="img/arr.gif" alt="" width="3" height="6" />
+									</td>
+									<td width="88%">
+										<a href="servlet/SelectTitleServlet?title=08">统计局：我国已开始跻身服务贸易大国行列</a>
+									</td>
+									<td width="10%">
+										2012-08-05
 									</td>
 								</tr>
 							</table>
-							<a href="servlet/qiantaixw03" class="more">MORE</a>
+							<a href="servlet/QianTaiNewsServlet?lmname=4" class="more">MORE</a>
 
 							<div class="clear"></div>
 
@@ -251,8 +272,9 @@
 								<div></div>
 							</div>
 							<p class="f-left about-me">
-								<em>Name Surname</em> "Lorem ipsum dolor sit amet, consectetuer
-								adip iscing elit, sed diam non ummy nibh euismod tincidunt u”
+								<em>乐成科技 </em>石家庄乐成科技有限公司 乐成科技是一家it服务的优秀提供商，
+								致力于打造为客户提供it服务整体解决方案的核心竞争优势，
+								是河北最大的it服务提供商之一
 							</p>
 							<div class="clear"></div>
 							<br />
@@ -260,62 +282,62 @@
 							<strong class="title">友情链接</strong>
 							<ul>
 								<li>
-									<a href="#">Business</a>
+									<a href="http://www.sjziei.com/">信息工程学院</a>
 								</li>
 								<li>
-									<a href="#">Art &amp; Photography</a>
+									<a href="http://www.hebau.edu.cn/">河北农业大学</a>
 								</li>
 								<li>
-									<a href="#">Communications</a>
+									<a href="http://www.hbu.edu.cn/">河北大学</a>
 								</li>
 								<li>
-									<a href="#">Fashion</a>
+									<a href="http://www.sjzc.edu.cn/">石家庄学院</a>
 								</li>
 								<li>
-									<a href="#">Hosting</a>
+									<a href="http://www.heuet.edu.cn/">经贸大学</a>
 								</li>
 								<li>
-									<a href="#">Interior &amp; Furniture</a>
+									<a href="http://www.hebnzxy.com/">女子学院</a>
 								</li>
 								<li>
-									<a href="#">Music</a>
+									<a href="http://www.kjxinxiedu.com/">科技信息职业学院</a>
 								</li>
 								<li>
-									<a href="#">Real Estate</a>
+									<a href="www.ibm.com.cn ">IBM</a>
 								</li>
 								<li>
-									<a href="#">Sport</a>
+									<a href="http://www.sinosoft.com.cn/">中科软</a>
 								</li>
 								<li>
-									<a href="#">Travel</a>
+									<a href="http://www.sinodata.net.cn/">中科金财</a>
 								</li>
 								<li>
-									<a href="#">Web design</a>
+									<a href="http://www.tyfoo.com/">泛思</a>
 								</li>
 							</ul>
 
-							<strong class="title">Entries by month</strong>
+							<strong class="title">培训项目</strong>
 							<ul>
 								<li>
-									<a href="#">August 2008 (38)</a>
+									<a href="#">Java开发</a>
 								</li>
 								<li>
-									<a href="#">July 2008 (81)</a>
+									<a href="#">Java Web 开发</a>
 								</li>
 								<li>
-									<a href="#">June 2008 (58)</a>
+									<a href="#">Android 系统开发</a>
 								</li>
 								<li>
-									<a href="#">May 2008 (60)</a>
+									<a href="#">Java 和 Web</a>
 								</li>
 								<li>
-									<a href="#">April 2008 (68)</a>
+									<a href="#">Java 和 Android</a>
 								</li>
 								<li>
-									<a href="#">March 2008 (82)</a>
+									<a href="#">Java Web 和 Android</a>
 								</li>
 								<li>
-									<a href="#">February 2008 (36)</a>
+									<a href="#">Java、Java Web、Android</a>
 								</li>
 							</ul>
 
