@@ -22,7 +22,7 @@ public class SelectContentDao {
 	public String SelectContent() {
 		DataBase db = new DataBase();
 		conn = db.getConn();
-		String sql = "SELECT content FROM news WHERE id=2";
+		String sql = "SELECT content FROM news ORDER BY id DESC LIMIT 1";
 		String str = "";
 		try {
 			ps = conn.prepareStatement(sql);

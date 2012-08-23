@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 	<head>
@@ -9,6 +10,7 @@
 		<title>欢迎访问乐成科技</title>
 	</head>
 	<body>
+
 		<!-- Layout -->
 		<div id="layout">
 			<!-- Header -->
@@ -103,163 +105,49 @@
 									<div></div>
 								</div>
 								<p class="f-left">
-									客货运车辆有3个曝光未处理的立即停止使用、吸毒者30日内必须强制注销驾照、超速3次就会面临丢工作……8月20日，
-									江苏省道路交通安全工作联席会议召开电视电话会议，全面部署推进江苏省道路交通安全隐患排查整治工作。
-									会议要求，从现在起到10月底，在全省组织开展道路交通安全隐患排查整治工作，力争一次死亡3人以上交通事故明显减少，
-									确保不发生一次死亡10人以......
-
+								<c:forEach items="${mylist01}" var="tempp">
+								<c:if test="${fn:length(tempp.content)>=100}">${fn:substring(tempp.content,0,99)}......</c:if>
+								<c:if test="${fn:length(tempp.content)<100}">${tempp.content}</c:if>
+								</c:forEach>
 									<a href="servlet/SelectContentServlet" class="more">MORE</a>
 								</p>
 								<div class="clear"></div>
 							</div>
 						</div>
-
+							
 						<div class="article">
-							<% %>
-							<h2>
-								<a href="servlet/QianTaiNewsServlet?lmname=1">国内</a>
-							</h2>
-
-					<form action="">
-							<table width="90%" border="0" align="center"
+						
+							<c:forEach items="${mylist03}" var="temp03" varStatus="vs">
+							
+							<table width="90%" border="1" align="center"
 								style="margin-left: 30px" border="1px">
-								<c:forEach items="${mylist}" var="temp" >
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=01">江苏清交通隐患 客货运司机1年超速3次要解聘</a>
-									</td>
-									<td width="10%">
-										2012-08-20
-									</td>
-								</tr>
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=02">中俄昨举行战略安全磋商</a>
-									</td>
-									<td width="10%">
-										2012-08-21
-									</td>
-								</tr>
-								</c:forEach>
-							</table></form>
-							<a href="servlet/QianTaiNewsServlet?lmname=1" class="more">MORE</a>
+								
+								<tr><h2>
+								<a href="servlet/QianTaiNewsServlet?lmname=${vs.count}">${temp03.lmname}</a>								
+							</h2><a href="servlet/QianTaiNewsServlet?lmname=${vs.count}" class="more">MORE</a></tr>
+										<c:forEach items="${mylist02}" var="temp02" varStatus="vs02" step="${4-vs.index}" begin="${vs.index}">
+												<c:forEach items="${temp02}" var="temp01" varStatus="vs01">
+													<tr>
+														<td width="88%">
+															<a href="servlet/XiangXiNews?id=${temp01.id }">${temp01.title }</a>
+														</td>
+														<td width="10%">
+															${temp01.time}
+														</td>
+													</tr>
+										
+												</c:forEach>
+											</c:forEach>
+
+							</table><br/>
+							
+							</c:forEach>
+					
 							<div class="clear"></div>
 
 						</div>
+ 
 
-						<div class="article">
-
-							<h2>
-								<a href="servlet/QianTaiNewsServlet?lmname=2">国际</a>
-							</h2>
-							<table width="90%" border="0" align="center"
-								style="margin-left: 30px">
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=03">菲律宾搜救人员发现坠机落海内政部长尸体 </a>
-									</td>
-									<td width="10%">
-										2012-02-14
-									</td>
-								</tr>
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=04">委内瑞拉监狱骚乱超过20人死亡 </a>
-									</td>
-									<td width="10%">
-										2012-08-09
-									</td>
-								</tr>
-							</table>
-							<a href="servlet/QianTaiNewsServlet?lmname=2" class="more">MORE</a>
-
-							<div class="clear"></div>
-
-						</div>
-
-						<div class="article">
-
-							<h2>
-								<a href="servlet/QianTaiNewsServlet?lmname=3">军事</a>
-							</h2>
-							<table width="90%" border="0" align="center"
-								style="margin-left: 30px">
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=05">日本抢岛将多样化 中国宜尽早全方位应对考虑 </a>
-									</td>
-									<td width="10%">
-										2012-07-09
-									</td>
-								</tr>
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=06">美日夺岛军演加强警备 日本变本加厉强化钓鱼岛控制</a>
-									</td>
-									<td width="10%">
-										2012-02-09
-									</td>
-								</tr>
-							</table>
-							<a href="servlet/QianTaiNewsServlet?lmname=3" class="more">MORE</a>
-
-							<div class="clear"></div>
-
-						</div>
-
-						<div class="article">
-
-							<h2>
-								<a href="servlet/QianTaiNewsServlet?lmname=4">财经</a>
-							</h2>
-							<table width="90%" border="0" align="center"
-								style="margin-left: 30px">
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=07">2015年 磁条银行卡全面退市</a>
-									</td>
-									<td width="10%">
-										2012-08-10
-									</td>
-								</tr>
-								<tr>
-									<td width="2%">
-										<img src="img/arr.gif" alt="" width="3" height="6" />
-									</td>
-									<td width="88%">
-										<a href="servlet/SelectTitleServlet?title=08">统计局：我国已开始跻身服务贸易大国行列</a>
-									</td>
-									<td width="10%">
-										2012-08-05
-									</td>
-								</tr>
-							</table>
-							<a href="servlet/QianTaiNewsServlet?lmname=4" class="more">MORE</a>
-
-							<div class="clear"></div>
-
-						</div>
 					</div>
 				</div>
 				<!-- end/ Content-->
