@@ -26,7 +26,7 @@
         <div id="quicknav">
           <a href="index.jsp">首页</a>
           <a href="#">联系</a>
-          <a href="Login.jsp">登录系统</a>
+          <a href="LoginJsp.jsp">登录系统</a>
         </div>
         
         <!-- Search -->
