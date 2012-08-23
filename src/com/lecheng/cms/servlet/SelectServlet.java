@@ -37,6 +37,7 @@ public class SelectServlet extends HttpServlet {
 			request.setAttribute("mylist", list);
 			RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp");  //请求转发
 			dp.forward(request, response);
+
 	}
 
 	public void init() throws ServletException {

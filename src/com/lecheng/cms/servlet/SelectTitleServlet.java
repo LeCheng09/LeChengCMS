@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.lecheng.cms.dao.XiangXiNewsDao;
-import com.lecheng.cms.dao.QianTaiLm;
 import com.lecheng.cms.pojo.XiangXiNewsPojo;
-import com.lecheng.cms.pojo.QianTaiXinWenPojo;
 
 public class SelectTitleServlet extends HttpServlet {
 

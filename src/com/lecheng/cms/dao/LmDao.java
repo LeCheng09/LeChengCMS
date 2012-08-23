@@ -69,6 +69,7 @@ public class LmDao {
 			}
 			return rst;		
 		}
+		
 		public int UpdateLm(int id,String name) {
 			conn = db.getConn();
 			String sql = " UPDATE lm SET lmname = ? WHERE id=?";

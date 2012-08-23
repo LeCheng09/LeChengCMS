@@ -45,7 +45,7 @@ public class DelLmServlet extends HttpServlet {
 		SelectServlet nls = new SelectServlet();
 		nls.doPost(request, response);
 		if(rs > 0){
-			RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp");  //请求转发
+			RequestDispatcher dp = request.getRequestDispatcher("files/Lmlist.jsp");  //请求转发
 			dp.forward(request, response);
 		}
 	}

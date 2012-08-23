@@ -90,6 +90,28 @@
     <servlet-name>SelectServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.SelectServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelectLmId</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.SelectLmId</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DelAllLmServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.DelAllLmServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LmUpdateServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.LmUpdateServlet</servlet-class>
+  </servlet>
+
+
+
+
 
   
 
@@ -137,6 +159,22 @@
   <servlet-mapping>
     <servlet-name>SelectServlet</servlet-name>
     <url-pattern>/servlet/SelectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectLmId</servlet-name>
+    <url-pattern>/servlet/SelectLmId</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelAllLmServlet</servlet-name>
+    <url-pattern>/servlet/DelAllLmServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdataLm</servlet-name>
+    <url-pattern>/servlet/UpdataLm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LmUpdateServlet</servlet-name>
+    <url-pattern>/servlet/LmUpdateServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
