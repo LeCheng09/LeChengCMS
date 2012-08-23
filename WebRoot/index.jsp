@@ -316,28 +316,40 @@
 								</li>
 							</ul>
 
-							<strong class="title">培训项目</strong>
+							<strong class="title">开发人员(排名不分先后)</strong>
 							<ul>
 								<li>
-									<a href="#">Java开发</a>
+									<a href="#">陈雪</a>
 								</li>
 								<li>
-									<a href="#">Java Web 开发</a>
+									<a href="#">程志伟</a>
 								</li>
 								<li>
-									<a href="#">Android 系统开发</a>
+									<a href="#">董超男</a>
 								</li>
 								<li>
-									<a href="#">Java 和 Web</a>
+									<a href="#">游佳宁</a>
 								</li>
 								<li>
-									<a href="#">Java 和 Android</a>
+									<a href="#">梁爽</a>
 								</li>
 								<li>
-									<a href="#">Java Web 和 Android</a>
+									<a href="#">路枭</a>
 								</li>
 								<li>
-									<a href="#">Java、Java Web、Android</a>
+									<a href="#">安凯</a>
+								</li>
+                                <li>
+									<a href="#">王兴娟</a>
+								</li>
+                                <li>
+									<a href="#">杨文佳</a>
+								</li>
+                                <li>
+									<a href="#">姚雪娇</a>
+								</li>
+                                <li>
+									<a href="#">赵晶</a>
 								</li>
 							</ul>
 
