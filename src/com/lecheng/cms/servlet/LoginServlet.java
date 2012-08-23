@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -70,7 +71,8 @@ public class LoginServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();	
+		
 		String uname = request.getParameter("username");
 		String pwd = request.getParameter("password");
 		
@@ -78,21 +80,18 @@ public class LoginServlet extends HttpServlet {
 		ArrayList<SysPojo> list = new ArrayList<SysPojo>();
 		list = l.selectSys(uname);
 		
-		int id = list.get(0).getId();
-		String name = list.get(0).getUsername();
-		String pawd = list.get(0).getPassword();
+		if(list.size()>0){
+			int id = list.get(0).getId();
+			session.setAttribute("id", id);
+			session.setAttribute("name", uname);
+			response.sendRedirect("../main.jsp");
+		}else{
+			request.setAttribute("err", "用户信息不存在！");
+			RequestDispatcher rd = request.getRequestDispatcher("../LoginJsp.jsp");
+			rd.forward(request, response);
+		}
 		
-    	if(!(name.equals(uname) && pwd.equals(pawd))) {
-    	
-    			response.setHeader("Refresh","1;url=../LoginJsp.jsp");
-    			
-    		}else {
-    			HttpSession session = request.getSession();	
-    			session.setAttribute("id", id);
-    			session.setAttribute("name", uname);
-    			//System.out.println(uname);
-    			response.sendRedirect("../main.jsp");
-    		}
+		
 	}
 
 	/**

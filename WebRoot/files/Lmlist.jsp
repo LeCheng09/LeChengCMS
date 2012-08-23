@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>栏目管理列表</title>
+<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="../LoginJsp.jsp"/>
+</c:if>
 <style type="text/css">
 <!--
 body {

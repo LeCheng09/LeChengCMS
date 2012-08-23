@@ -12,6 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 
 		<title>My JSP 'NewsPublishView.jsp' starting page</title>
+<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="LoginJsp.jsp"/>
+</c:if>
+		
 		<link rel="stylesheet" rev="stylesheet" href="css/style.css" type="text/css" media="all" />
 		<script type="text/javascript" language="javascript">
     	function back(){

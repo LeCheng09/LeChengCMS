@@ -6,6 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>��Ŀ����ϵͳ by www.mycodes.net</title>
+<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="../LoginJsp.jsp"/>
+</c:if>
 <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 
 
