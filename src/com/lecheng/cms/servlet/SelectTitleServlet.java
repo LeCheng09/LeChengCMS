@@ -10,15 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lecheng.cms.dao.qiantailm;
-import com.lecheng.cms.pojo.qiantaixinwenPojo;
+import com.lecheng.cms.dao.XiangXiNewsDao;
+import com.lecheng.cms.dao.QianTaiLm;
+import com.lecheng.cms.pojo.XiangXiNewsPojo;
+import com.lecheng.cms.pojo.QianTaiXinWenPojo;
 
-public class qiantaixw02 extends HttpServlet {
+public class SelectTitleServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public qiantaixw02() {
+	public SelectTitleServlet() {
 		super();
 	}
 
@@ -59,13 +61,32 @@ public class qiantaixw02 extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		qiantailm qtlm = new qiantailm();//����CusSelectBean����
-		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//���弯�϶���
-		list = qtlm.selectlm02();//���ò�ѯ�ķ���
-		request.setAttribute("list", list);
-		HttpSession session = request.getSession();//��servlet�е�û��session������Ҫ��ʵ���������session����
-		session.setAttribute("list", list);//���ϱߵļ��ϴ����session��Χ��
-		response.sendRedirect("../xianshinews02.jsp");//��ת��ǰ̨ҳ��
+		request.setCharacterEncoding("utf-8");
+		String title = request.getParameter("title");
+		
+		if(title.equals("01")){
+			title="江苏清交通隐患 客货运司机1年超速3次要解聘";
+		}else if(title.equals("02")){
+			title="中俄昨举行战略安全磋商";
+		}else if(title.equals("03")){
+			title="菲律宾搜救人员发现坠机落海内政部长尸体";
+		}else if(title.equals("04")){
+			title="委内瑞拉监狱骚乱超过20人死亡";
+		}else if(title.equals("05")){
+			title="日本抢岛将多样化 中国宜尽早全方位应对考虑";
+		}else if(title.equals("06")){
+			title="美日夺岛军演加强警备 日本变本加厉强化钓鱼岛控制";
+		}else if(title.equals("07")){
+			title="2015年 磁条银行卡全面退市";
+		}else if(title.equals("08")){
+			title="统计局：我国已开始跻身服务贸易大国行列";
+		}
+		XiangXiNewsDao xxnd = new XiangXiNewsDao(); 
+		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
+		list = xxnd.selectTitle(title);
+		HttpSession session = request.getSession();
+		session.setAttribute("mylist", list);
+		response.sendRedirect("../xiangxinews.jsp");
 	}
 
 	/**

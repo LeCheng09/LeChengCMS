@@ -1,8 +1,10 @@
 package com.lecheng.cms.pojo;
 
-public class qiantaixinwenPojo {
-		private String title;
-		private String time;
+public class QianTaiXinWenPojo {
+		private int id;//新闻id
+		private String title;//新闻标题
+		private String time;//新闻发布时间
+		
 		public String getTitle() {
 			return title;
 		}
@@ -15,5 +17,11 @@ public class qiantaixinwenPojo {
 		}
 		public void setTime(String time) {
 			this.time = time;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
 		}
 }

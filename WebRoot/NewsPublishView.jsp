@@ -17,6 +17,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	function back(){
     		window.history.go(-1);
     	}
+    	function tijiao(){
+    		var title = document.getElementById("title").value;
+    		var author = document.getElementById("author").value;
+    		var lmid = document.getElementById("lmid").value;
+    		if(title == ""){
+    			alert("新闻标题不能为空  ！");
+    		}else if(author==""){
+    			alert("新闻作者不能为空 ！");
+    		}else if(lmid=="0"){
+    			alert("请选择栏目编号！");
+    		}else{
+    			var str = document.getElementById("ff");
+    			str.submit();
+    		}
+    		
+    	}
     </script>
 		<style type="text/css">
 <!--
@@ -31,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<body class="ContentBody">
 		
-		<form method="post" action="servlet/NewsPublishServlet">
+		<form method="post" action="servlet/NewsPublishServlet" id="ff">
 		<div class="MainDiv">
 			<table align="center" width="960px" border="0" cellpadding="0" cellspacing="0" class="CContent">
 				<tr>
@@ -49,9 +65,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 
 				 <tr>
 					<td nowrap align="right" width="11%">
-						新闻标题	：				</td>
-					<td width="27%"><input type="text" maxlength="25" name="title"></td>
-					<td nowrap align="right" width="11%">新闻副标题： </td>
+						新闻标题：				</td>
+					<td width="27%"><input type="text" maxlength="25" name="title" id="title"></td>
+					<td nowrap align="right" width="11%">副标题： </td>
 					<td width="27%"><input type="text" maxlength="25" name="sec_title"></td>
 				</tr>
 				<tr>
@@ -64,13 +80,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					out.println("<input type='text' name='time' value='"+ now +"' readonly='readonly'/>");
     			 %></td>
 					<td nowrap align="right" width="11%">作者：</td>
-					<td width="27%"><input type="text" maxlength="50" name="author"></td>
+					<td width="27%"><input type="text" maxlength="50" name="author" id="author"></td>
 				</tr>
 				<tr>
 					<td nowrap align="right" width="11%">发布账号： </td>
-					<td width="27%"><input type="text" maxlength="11" name="userid"></td>
+					<td width="27%">
+					
+					 <%
+							String userid = session.getAttribute("id").toString();
+							int uid = Integer.parseInt(userid);
+							
+							out.println("<input type='text' maxlength='11' readonly='readonly' name='userid' value='"+uid+"'>");
+						 %>
+					</td>
 					<td nowrap align="right" width="11%">栏目编号： </td>
-					<td width="27%"><select name="lmid">
+					<td width="27%">
+					<select name="lmid" id="lmid">
                       <option value="0" disabled="disabled" selected="selected"> 请选择栏目编号： </option>
                       <c:forEach items="${selectlist}" var="temp">
                         <c:set var="lmid" value="${temp.id}" scope="session" />
@@ -105,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<tr>
 					<td align="center" colspan="4">
-						<input type="submit" value="发布" class="button"/>
+						<input type="button" value="发布" class="button" onclick="tijiao();"/>
 						<input type="reset" value="重置" class="button"/>
 						<input type="button" value="返回" onClick="back();" class="button" />
 						</td>

@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lecheng.cms.dao.qiantailm;
-import com.lecheng.cms.pojo.qiantaixinwenPojo;
+import com.lecheng.cms.dao.LoginDao;
+import com.lecheng.cms.pojo.SysPojo;
 
-public class qiantaixw03 extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public qiantaixw03() {
+	public LoginServlet() {
 		super();
 	}
 
@@ -43,7 +43,19 @@ public class qiantaixw03 extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		this.doPost(request, response);
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+		out.println("<HTML>");
+		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
+		out.println("  <BODY>");
+		out.print("    This is ");
+		out.print(this.getClass());
+		out.println(", using the GET method");
+		out.println("  </BODY>");
+		out.println("</HTML>");
+		out.flush();
+		out.close();
 	}
 
 	/**
@@ -59,13 +71,28 @@ public class qiantaixw03 extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		qiantailm qtlm = new qiantailm();//定义CusSelectBean对象
-		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//定义集合对象
-		list = qtlm.selectlm03();//调用查询的方法
-		request.setAttribute("list", list);
-		HttpSession session = request.getSession();//在servlet中的没有session所以需要先实例化这个的session对象
-		session.setAttribute("list", list);//把上边的集合存放在session范围内
-		response.sendRedirect("../xianshinews.jsp");//跳转到前台页面
+		String uname = request.getParameter("username");
+		String pwd = request.getParameter("password");
+		
+		LoginDao l = new LoginDao();
+		ArrayList<SysPojo> list = new ArrayList<SysPojo>();
+		list = l.selectSys(uname);
+		
+		int id = list.get(0).getId();
+		String name = list.get(0).getUsername();
+		String pawd = list.get(0).getPassword();
+		
+    	if(!(name.equals(uname) && pwd.equals(pawd))) {
+    	
+    			response.setHeader("Refresh","1;url=../LoginJsp.jsp");
+    			
+    		}else {
+    			HttpSession session = request.getSession();	
+    			session.setAttribute("id", id);
+    			session.setAttribute("name", uname);
+    			//System.out.println(uname);
+    			response.sendRedirect("../main.jsp");
+    		}
 	}
 
 	/**

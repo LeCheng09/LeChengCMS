@@ -2,25 +2,19 @@ package com.lecheng.cms.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lecheng.cms.dao.qiantailm;
-import com.lecheng.cms.pojo.qiantaixinwenPojo;
-
-
-public class qiantaixw extends HttpServlet {
+public class RemoveServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public qiantaixw() {
+	public RemoveServlet() {
 		super();
 	}
 
@@ -60,14 +54,11 @@ public class qiantaixw extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		qiantailm qtlm = new qiantailm();//定义CusSelectBean对象
-		ArrayList<qiantaixinwenPojo> list = new ArrayList<qiantaixinwenPojo>();//定义集合对象
-		list = qtlm.selectlm();//调用查询的方法
-		request.setAttribute("list", list);
-		HttpSession session = request.getSession();//在servlet中的没有session所以需要先实例化这个的session对象
-		session.setAttribute("list", list);//把上边的集合存放在session范围内
-		response.sendRedirect("../xianshinews.jsp");//跳转到前台页面
+		HttpSession session = request.getSession();
+		if(session.getAttribute("name") != null){
+			session.removeAttribute("name");
+			response.sendRedirect("../LoginJsp.jsp");
+		}
 	}
 
 	/**
