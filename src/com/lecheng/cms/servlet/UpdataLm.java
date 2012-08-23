@@ -11,26 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lecheng.cms.dao.LmDao;
 
-
-
 public class UpdataLm extends HttpServlet {
 
-	
 	public UpdataLm() {
 		super();
 	}
 
 	public void destroy() {
-		super.destroy(); 
+		super.destroy();
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-         this.doPost(request, response);
-		
+		this.doPost(request, response);
+
 	}
 
-	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -40,15 +36,14 @@ public class UpdataLm extends HttpServlet {
 		LmDao ld = new LmDao();
 		int rs;
 		rs = ld.UpdateLm(id, name);
-		
+
 		request.setAttribute("rs", rs);
-		RequestDispatcher dp = request.getRequestDispatcher("链接");  //请求转发
-		dp.forward(request, response); 
+		RequestDispatcher dp = request.getRequestDispatcher("链接"); // 请求转发
+		dp.forward(request, response);
 	}
 
-	
 	public void init() throws ServletException {
-		
+
 	}
 
 }

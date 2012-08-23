@@ -28,13 +28,17 @@ public class RemoveServlet extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
-	 *
+	 * 
 	 * This method is called when a form has its tag value method equals to get.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -44,13 +48,18 @@ public class RemoveServlet extends HttpServlet {
 
 	/**
 	 * The doPost method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to post.
 	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
+	 * This method is called when a form has its tag value method equals to
+	 * post.
+	 * 
+	 * @param request
+	 *            the request send by the client to the server
+	 * @param response
+	 *            the response send by the server to the client
+	 * @throws ServletException
+	 *             if an error occurred
+	 * @throws IOException
+	 *             if an error occurred
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -63,8 +72,9 @@ public class RemoveServlet extends HttpServlet {
 
 	/**
 	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
+	 * 
+	 * @throws ServletException
+	 *             if an error occurs
 	 */
 	public void init() throws ServletException {
 		// Put your code here

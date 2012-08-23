@@ -23,7 +23,7 @@ public class UserDao {
 		boolean flag1 = false;
 		int ren = 0;
 		conn = db.getConn();
-		try{
+		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, newword);
 			ps.setString(2, name);
@@ -31,13 +31,13 @@ public class UserDao {
 			ren = ps.executeUpdate();
 			ps.close();
 			conn.close();
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		if(ren > 0){
+		if (ren > 0) {
 			flag1 = true;
 		}
-		
+
 		return flag1;
 	}
 	/**

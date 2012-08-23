@@ -49,7 +49,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
-
 /**
  * Servlet to upload and browse files.<br />
  * 
@@ -59,11 +58,11 @@ import org.apache.commons.io.FilenameUtils;
  * <ul>
  * <li><code>GetFolders</code>: Retrieves a list of folders in the current
  * folder</li>
- * <li><code>GetFoldersAndFiles</code>: Retrives a list of files and folders
- * in the current folder</li>
+ * <li><code>GetFoldersAndFiles</code>: Retrives a list of files and folders in
+ * the current folder</li>
  * <li><code>CreateFolder</code>: Creates a new folder in the current folder</li>
- * <li><code>FileUpload</code>: Stores an uploaded file into the current
- * folder. (must be sent with POST)</li>
+ * <li><code>FileUpload</code>: Stores an uploaded file into the current folder.
+ * (must be sent with POST)</li>
  * </ul>
  * 
  * @version $Id: ConnectorServlet.java,v 1.4 2011/11/02 00:00:23 liwei Exp $
@@ -71,21 +70,24 @@ import org.apache.commons.io.FilenameUtils;
 public class ConnectorServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -5742008970929377161L;
-	//private static final Logger logger = LoggerFactory.getLogger(ConnectorServlet.class);
+
+	// private static final Logger logger =
+	// LoggerFactory.getLogger(ConnectorServlet.class);
 
 	/**
 	 * Initialize the servlet: <code>mkdir</code> &lt;DefaultUserFilesPath&gt;
 	 */
-	
+
 	public void init() throws ServletException, IllegalArgumentException {
 		String realDefaultUserFilesPath = getServletContext().getRealPath(
-		        ConnectorHandler.getDefaultUserFilesPath());
+				ConnectorHandler.getDefaultUserFilesPath());
 
 		File defaultUserFilesDir = new File(realDefaultUserFilesPath);
 		UtilsFile.checkDirAndCreate(defaultUserFilesDir);
 
-		//logger.info("ConnectorServlet successfully initialized!");
+		// logger.info("ConnectorServlet successfully initialized!");
 	}
+
 	/**
 	 * Manage the <code>GET</code> requests (<code>GetFolders</code>,
 	 * <code>GetFoldersAndFiles</code>, <code>CreateFolder</code>).<br/>
@@ -98,8 +100,8 @@ public class ConnectorServlet extends HttpServlet {
 	 * </p>
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-		//logger.debug("Entering ConnectorServlet#doGet");
+			throws ServletException, IOException {
+		// logger.debug("Entering ConnectorServlet#doGet");
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/xml; charset=UTF-8");
@@ -110,25 +112,29 @@ public class ConnectorServlet extends HttpServlet {
 		String typeStr = request.getParameter("Type");
 		String currentFolderStr = request.getParameter("CurrentFolder");
 
-		//logger.debug("Parameter Command: {}", commandStr);
-		//logger.debug("Parameter Type: {}", typeStr);
-		//logger.debug("Parameter CurrentFolder: {}", currentFolderStr);
+		// logger.debug("Parameter Command: {}", commandStr);
+		// logger.debug("Parameter Type: {}", typeStr);
+		// logger.debug("Parameter CurrentFolder: {}", currentFolderStr);
 
 		XmlResponse xr;
 
 		if (!RequestCycleHandler.isEnabledForFileBrowsing(request))
-			xr = new XmlResponse(XmlResponse.EN_ERROR, Messages.NOT_AUTHORIZED_FOR_BROWSING);
+			xr = new XmlResponse(XmlResponse.EN_ERROR,
+					Messages.NOT_AUTHORIZED_FOR_BROWSING);
 		else if (!CommandHandler.isValidForGet(commandStr))
 			xr = new XmlResponse(XmlResponse.EN_ERROR, Messages.INVALID_COMMAND);
 		else if (typeStr != null && !ResourceTypeHandler.isValid(typeStr))
 			xr = new XmlResponse(XmlResponse.EN_ERROR, Messages.INVALID_TYPE);
 		else if (!UtilsFile.isValidPath(currentFolderStr))
-			xr = new XmlResponse(XmlResponse.EN_ERROR, Messages.INVALID_CURRENT_FOLDER);
+			xr = new XmlResponse(XmlResponse.EN_ERROR,
+					Messages.INVALID_CURRENT_FOLDER);
 		else {
 			CommandHandler command = CommandHandler.getCommand(commandStr);
-			ResourceTypeHandler resourceType = ResourceTypeHandler.getDefaultResourceType(typeStr);
+			ResourceTypeHandler resourceType = ResourceTypeHandler
+					.getDefaultResourceType(typeStr);
 
-			String typePath = UtilsFile.constructServerSidePath(request, resourceType);
+			String typePath = UtilsFile.constructServerSidePath(request,
+					resourceType);
 			String typeDirPath = getServletContext().getRealPath(typePath);
 
 			File typeDir = new File(typeDirPath);
@@ -140,24 +146,27 @@ public class ConnectorServlet extends HttpServlet {
 				xr = new XmlResponse(XmlResponse.EN_INVALID_FOLDER_NAME);
 			else {
 
-				xr = new XmlResponse(command, resourceType, currentFolderStr, UtilsResponse
-				        .constructResponseUrl(request, resourceType, currentFolderStr, true,
-				                ConnectorHandler.isFullUrl()));
+				xr = new XmlResponse(command, resourceType, currentFolderStr,
+						UtilsResponse.constructResponseUrl(request,
+								resourceType, currentFolderStr, true,
+								ConnectorHandler.isFullUrl()));
 
 				if (command.equals(CommandHandler.GET_FOLDERS))
 					xr.setFolders(currentDir);
 				else if (command.equals(CommandHandler.GET_FOLDERS_AND_FILES))
 					xr.setFoldersAndFiles(currentDir);
 				else if (command.equals(CommandHandler.CREATE_FOLDER)) {
-					//String newFolderStr = UtilsFile.sanitizeFolderName(request.getParameter("NewFolderName"));
+					// String newFolderStr =
+					// UtilsFile.sanitizeFolderName(request.getParameter("NewFolderName"));
 					/*
 					 * liwei �����ϴ�����
 					 */
 					String tempStr = request.getParameter("NewFolderName");
-				    tempStr = new String(tempStr.getBytes("iso8859-1"),"utf-8");     
-				    String newFolderStr = UtilsFile.sanitizeFolderName(tempStr);
-					
-				    //logger.debug("Parameter NewFolderName: {}", newFolderStr);
+					tempStr = new String(tempStr.getBytes("iso8859-1"), "utf-8");
+					String newFolderStr = UtilsFile.sanitizeFolderName(tempStr);
+
+					// logger.debug("Parameter NewFolderName: {}",
+					// newFolderStr);
 
 					File newFolder = new File(currentDir, newFolderStr);
 					int errorNumber = XmlResponse.EN_UKNOWN;
@@ -167,7 +176,7 @@ public class ConnectorServlet extends HttpServlet {
 					else {
 						try {
 							errorNumber = (newFolder.mkdir()) ? XmlResponse.EN_OK
-							        : XmlResponse.EN_INVALID_FOLDER_NAME;
+									: XmlResponse.EN_INVALID_FOLDER_NAME;
 						} catch (SecurityException e) {
 							errorNumber = XmlResponse.EN_SECURITY_ERROR;
 						}
@@ -180,7 +189,7 @@ public class ConnectorServlet extends HttpServlet {
 		out.print(xr);
 		out.flush();
 		out.close();
-		//logger.debug("Exiting ConnectorServlet#doGet");
+		// logger.debug("Exiting ConnectorServlet#doGet");
 	}
 
 	/**
@@ -195,8 +204,8 @@ public class ConnectorServlet extends HttpServlet {
 	 */
 	@SuppressWarnings("unchecked")
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-		//logger.debug("Entering Connector#doPost");
+			throws ServletException, IOException {
+		// logger.debug("Entering Connector#doPost");
 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -207,9 +216,9 @@ public class ConnectorServlet extends HttpServlet {
 		String typeStr = request.getParameter("Type");
 		String currentFolderStr = request.getParameter("CurrentFolder");
 
-		//logger.debug("Parameter Command: {}", commandStr);
-		//logger.debug("Parameter Type: {}", typeStr);
-		//logger.debug("Parameter CurrentFolder: {}", currentFolderStr);
+		// logger.debug("Parameter Command: {}", commandStr);
+		// logger.debug("Parameter Type: {}", typeStr);
+		// logger.debug("Parameter CurrentFolder: {}", currentFolderStr);
 
 		UploadResponse ur;
 
@@ -221,18 +230,22 @@ public class ConnectorServlet extends HttpServlet {
 		}
 
 		if (!RequestCycleHandler.isEnabledForFileUpload(request))
-			ur = new UploadResponse(UploadResponse.SC_SECURITY_ERROR, null, null,
-			        Messages.NOT_AUTHORIZED_FOR_UPLOAD);
+			ur = new UploadResponse(UploadResponse.SC_SECURITY_ERROR, null,
+					null, Messages.NOT_AUTHORIZED_FOR_UPLOAD);
 		else if (!CommandHandler.isValidForPost(commandStr))
-			ur = new UploadResponse(UploadResponse.SC_ERROR, null, null, Messages.INVALID_COMMAND);
+			ur = new UploadResponse(UploadResponse.SC_ERROR, null, null,
+					Messages.INVALID_COMMAND);
 		else if (typeStr != null && !ResourceTypeHandler.isValid(typeStr))
-			ur = new UploadResponse(UploadResponse.SC_ERROR, null, null, Messages.INVALID_TYPE);
+			ur = new UploadResponse(UploadResponse.SC_ERROR, null, null,
+					Messages.INVALID_TYPE);
 		else if (!UtilsFile.isValidPath(currentFolderStr))
 			ur = UploadResponse.UR_INVALID_CURRENT_FOLDER;
 		else {
-			ResourceTypeHandler resourceType = ResourceTypeHandler.getDefaultResourceType(typeStr);
+			ResourceTypeHandler resourceType = ResourceTypeHandler
+					.getDefaultResourceType(typeStr);
 
-			String typePath = UtilsFile.constructServerSidePath(request, resourceType);
+			String typePath = UtilsFile.constructServerSidePath(request,
+					resourceType);
 			String typeDirPath = getServletContext().getRealPath(typePath);
 
 			File typeDir = new File(typeDirPath);
@@ -247,54 +260,65 @@ public class ConnectorServlet extends HttpServlet {
 				String newFilename = null;
 				FileItemFactory factory = new DiskFileItemFactory();
 				ServletFileUpload upload = new ServletFileUpload(factory);
-				//FileOperate fo = new FileOperate();//liwei �����ϴ����롢�ļ�������Ϊ�����(�ϴ�����+����� ��ʽ)
-				upload.setHeaderEncoding("UTF-8");//liwei �����ϴ�����
+				// FileOperate fo = new FileOperate();//liwei
+				// �����ϴ����롢�ļ�������Ϊ�����(�ϴ�����+����� ��ʽ)
+				upload.setHeaderEncoding("UTF-8");// liwei �����ϴ�����
 				try {
 
 					List<FileItem> items = upload.parseRequest(request);
 
 					// We upload only one file at the same time
 					FileItem uplFile = items.get(0);
-					String rawName = UtilsFile.sanitizeFileName(uplFile.getName());
+					String rawName = UtilsFile.sanitizeFileName(uplFile
+							.getName());
 					String filename = FilenameUtils.getName(rawName);
 					String oldName = FilenameUtils.getName(rawName);
 					String baseName = FilenameUtils.removeExtension(filename);
 					String extension = FilenameUtils.getExtension(filename);
-					//filename = fo.generateRandomFilename() + extension;//liwei �����ϴ����롢�ļ�������Ϊ�����(�ϴ�����+����� ��ʽ)
-					filename = UUID.randomUUID().toString()+"."+extension;//liwei �����ϴ����롢�ļ�������Ϊ�����(UUID��ʽ)
-					//logger.warn("�ļ���"+oldName+"���ɹ��ϴ���������������Ϊ��"+filename+"����");
+					// filename = fo.generateRandomFilename() +
+					// extension;//liwei
+					// �����ϴ����롢�ļ�������Ϊ�����(�ϴ�����+����� ��ʽ)
+					filename = UUID.randomUUID().toString() + "." + extension;// liwei
+																				// �����ϴ����롢�ļ�������Ϊ�����(UUID��ʽ)
+					// logger.warn("�ļ���"+oldName+"���ɹ��ϴ���������������Ϊ��"+filename+"����");
 					if (!ExtensionsHandler.isAllowed(resourceType, extension))
-						ur = new UploadResponse(UploadResponse.SC_INVALID_EXTENSION);
+						ur = new UploadResponse(
+								UploadResponse.SC_INVALID_EXTENSION);
 					else {
 
 						// construct an unique file name
 						File pathToSave = new File(currentDir, filename);
 						int counter = 1;
 						while (pathToSave.exists()) {
-							newFilename = baseName.concat("(").concat(String.valueOf(counter))
-							        .concat(")").concat(".").concat(extension);
+							newFilename = baseName.concat("(").concat(
+									String.valueOf(counter)).concat(")")
+									.concat(".").concat(extension);
 							pathToSave = new File(currentDir, newFilename);
 							counter++;
 						}
 
 						if (Utils.isEmpty(newFilename))
-							ur = new UploadResponse(UploadResponse.SC_OK, UtilsResponse
-							        .constructResponseUrl(request, resourceType, currentFolderStr,
-							                true, ConnectorHandler.isFullUrl()).concat(filename));
+							ur = new UploadResponse(UploadResponse.SC_OK,
+									UtilsResponse.constructResponseUrl(request,
+											resourceType, currentFolderStr,
+											true, ConnectorHandler.isFullUrl())
+											.concat(filename));
 						else
 							ur = new UploadResponse(UploadResponse.SC_RENAMED,
-							        UtilsResponse.constructResponseUrl(request, resourceType,
-							                currentFolderStr, true, ConnectorHandler.isFullUrl())
-							                .concat(newFilename), newFilename);
+									UtilsResponse.constructResponseUrl(request,
+											resourceType, currentFolderStr,
+											true, ConnectorHandler.isFullUrl())
+											.concat(newFilename), newFilename);
 
 						// secure image check
 						if (resourceType.equals(ResourceTypeHandler.IMAGE)
-						        && ConnectorHandler.isSecureImageUploads()) {
+								&& ConnectorHandler.isSecureImageUploads()) {
 							if (UtilsFile.isImage(uplFile.getInputStream()))
 								uplFile.write(pathToSave);
 							else {
 								uplFile.delete();
-								ur = new UploadResponse(UploadResponse.SC_INVALID_EXTENSION);
+								ur = new UploadResponse(
+										UploadResponse.SC_INVALID_EXTENSION);
 							}
 						} else
 							uplFile.write(pathToSave);
@@ -311,7 +335,7 @@ public class ConnectorServlet extends HttpServlet {
 		out.flush();
 		out.close();
 
-		//logger.debug("Exiting Connector#doPost");
+		// logger.debug("Exiting Connector#doPost");
 	}
 
 }

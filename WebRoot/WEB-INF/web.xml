@@ -102,6 +102,12 @@
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShouYeServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.ShouYeServlet</servlet-class>
+  </servlet>
 
 
   
@@ -159,7 +165,11 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/servlet/RegisterServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShouYeServlet</servlet-name>
+    <url-pattern>/servlet/ShouYeServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>servlet/ShouYeServlet</welcome-file>
   </welcome-file-list>
 </web-app>
