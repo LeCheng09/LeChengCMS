@@ -13,6 +13,6 @@
    %> 
    -->
     <h2>修改成功！</h2>
-    <a href="xiugai.jsp">返回</a>
+    <a href="main.jsp">返回</a>
   </body>
 </html>
