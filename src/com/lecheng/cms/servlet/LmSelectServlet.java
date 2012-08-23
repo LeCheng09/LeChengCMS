@@ -70,9 +70,9 @@ public class LmSelectServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("selectlist", list);
 		response.sendRedirect("../NewsPublishView.jsp");
-//		request.setAttribute("selectlist", list);
-//		RequestDispatcher dp = request.getRequestDispatcher("../NewsPublishView.jsp"); //
-//		dp.forward(request, response);
+		request.setAttribute("selectlist", list);
+		RequestDispatcher dp = request.getRequestDispatcher("../NewsPublishView.jsp"); //
+
 	}
 
 	/**

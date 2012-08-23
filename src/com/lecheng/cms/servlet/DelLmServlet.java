@@ -42,8 +42,12 @@ public class DelLmServlet extends HttpServlet {
 		int rs;
 		rs = ld.DelLm(id);
 		request.setAttribute("rs", rs);
-		RequestDispatcher dp = request.getRequestDispatcher("链接");  //请求转发
-		dp.forward(request, response); 
+		SelectServlet nls = new SelectServlet();
+		nls.doPost(request, response);
+		if(rs > 0){
+			RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp");  //请求转发
+			dp.forward(request, response);
+		}
 	}
 
 	

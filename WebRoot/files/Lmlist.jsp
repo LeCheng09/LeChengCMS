@@ -74,12 +74,15 @@ function link(){
    document.getElementById("fom").submit();
 }
 
-function con(){
-	if(confirm("确定删除吗？")){
-		var del = document.getElementById("del");
-		
-	}
+function con() {
+		if (confirm("确定删除吗？")) {
+			<c:forEach items="${mylist}" var="temp">
+			var del = document.getElementById("${temp.id}");
+			del.href = "../servlet/DelLmServlet?id=${temp.id}";
+			</c:forEach>
+		}
 }
+
 
 </SCRIPT>
 
@@ -145,8 +148,11 @@ function con(){
 						    <td height="20" align="center"><input type="checkbox" name="delid"/></td>
 		                    <td align="center">${temp.id}</td>
 						    <td align="center">${temp.lmname}</td>
-		                    <td><a href="editrenwu.htm">编辑|</a>
-								<a href="#" id="del" onclick="con();">删除</a></td>
+							<td align="center">
+								<a href="editrenwu.htm">编辑</a>|
+								<a href="#" id="${temp.id }" onclick="con();">删除</a>
+							</td>
+							
 		                  </tr>  
 		               </c:forEach>                          
 	                 </table>
@@ -180,7 +186,7 @@ function con(){
           
           </td>
         </tr>
-      </table>
+      </table>    
       
     </td>
   </tr>
