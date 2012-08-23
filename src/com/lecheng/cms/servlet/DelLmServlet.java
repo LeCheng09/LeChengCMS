@@ -49,7 +49,6 @@ public class DelLmServlet extends HttpServlet {
 			dp.forward(request, response);
 		}
 	}
-
 	
 	public void init() throws ServletException {
 		// Put your code here
