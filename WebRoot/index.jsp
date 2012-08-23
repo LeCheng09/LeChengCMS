@@ -371,8 +371,9 @@
 					&copy; 2008 &ndash; 2012 乐成科技版权所有
 				</p>
 				<p class="f-right">
-					京 ICP备11011334号-1 京公网安备110105007294 | Powered by:
-					<a href="#">乐成科技09班</a>
+					项目网址：<a href="https://github.com/LeCheng09" target="_blank">
+                    https://github.com/LeCheng09</a> | Powered by:
+					乐成科技09班
 				</p>
 			</div>
 		</div>
