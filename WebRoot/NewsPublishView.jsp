@@ -71,10 +71,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td width="27%">
 					
 					 <%
-							//String userid = session.getAttribute("id").toString();
-							//int uid = Integer.parseInt(userid);
+							String userid = session.getAttribute("id").toString();
+							int uid = Integer.parseInt(userid);
 							
-							//out.println("<input type='text' maxlength='11' readonly='readonly' name='userid' value='"+uid+"'>");
+							out.println("<input type='text' maxlength='11' readonly='readonly' name='userid' value='"+uid+"'>");
 						 %>
 					</td>
 					<td nowrap align="right" width="11%">栏目编号： </td>
