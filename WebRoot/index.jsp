@@ -29,7 +29,7 @@
 				<div id="quicknav">
 					<a href="index.jsp">首页</a>
 					<a href="#">联系</a>
-					<a href="Login.jsp">登录系统</a>
+					<a href="LoginJsp.jsp">登录系统</a>
 					
 				</div>
 
@@ -316,28 +316,40 @@
 								</li>
 							</ul>
 
-							<strong class="title">培训项目</strong>
+							<strong class="title">开发人员(排名不分先后)</strong>
 							<ul>
 								<li>
-									<a href="#">Java开发</a>
+									<a href="#">陈雪</a>
 								</li>
 								<li>
-									<a href="#">Java Web 开发</a>
+									<a href="#">程志伟</a>
 								</li>
 								<li>
-									<a href="#">Android 系统开发</a>
+									<a href="#">董超男</a>
 								</li>
 								<li>
-									<a href="#">Java 和 Web</a>
+									<a href="#">游佳宁</a>
 								</li>
 								<li>
-									<a href="#">Java 和 Android</a>
+									<a href="#">梁爽</a>
 								</li>
 								<li>
-									<a href="#">Java Web 和 Android</a>
+									<a href="#">路枭</a>
 								</li>
 								<li>
-									<a href="#">Java、Java Web、Android</a>
+									<a href="#">安凯</a>
+								</li>
+                                <li>
+									<a href="#">王兴娟</a>
+								</li>
+                                <li>
+									<a href="#">杨文佳</a>
+								</li>
+                                <li>
+									<a href="#">姚雪娇</a>
+								</li>
+                                <li>
+									<a href="#">赵晶</a>
 								</li>
 							</ul>
 
@@ -359,8 +371,9 @@
 					&copy; 2008 &ndash; 2012 乐成科技版权所有
 				</p>
 				<p class="f-right">
-					京 ICP备11011334号-1 京公网安备110105007294 | Powered by:
-					<a href="#">乐成科技09班</a>
+					项目网址：<a href="https://github.com/LeCheng09" target="_blank">
+                    https://github.com/LeCheng09</a> | Powered by:
+					乐成科技09班
 				</p>
 			</div>
 		</div>
