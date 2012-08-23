@@ -86,4 +86,25 @@ public class ShouYeDao {
 		}
 		return list;
 	}
+
+	public ArrayList<XiangXiNewsPojo> selectTop4() {
+		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
+		String sql = "SELECT lmname FROM lm  LIMIT 4";
+		conn = db.getConn();
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				XiangXiNewsPojo xw = new XiangXiNewsPojo();
+				xw.setLmname(rs.getString(1));
+				list.add(xw);			
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return list;
+	}
 }

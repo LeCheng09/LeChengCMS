@@ -60,28 +60,19 @@ public class ShouYeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		ShouYeDao sy = new ShouYeDao();
-		String str1 = "国内";
-		String str2 = "国际";
-		String str3 = "军事";
-		String str4 = "财经";
+
+		
 		ArrayList<XiangXiNewsPojo> mylist01 = new ArrayList<XiangXiNewsPojo>();
-
-		ArrayList<ArrayList<XiangXiNewsPojo>> mylist02 = new ArrayList<ArrayList<XiangXiNewsPojo>>();
-		ArrayList<XiangXiNewsPojo> mylist02_1 = new ArrayList<XiangXiNewsPojo>();
-		ArrayList<XiangXiNewsPojo> mylist02_2 = new ArrayList<XiangXiNewsPojo>();
-		ArrayList<XiangXiNewsPojo> mylist02_3 = new ArrayList<XiangXiNewsPojo>();
-		ArrayList<XiangXiNewsPojo> mylist02_4 = new ArrayList<XiangXiNewsPojo>();
-		ArrayList<XiangXiNewsPojo> mylist03 = new ArrayList<XiangXiNewsPojo>();
 		mylist01 = sy.selectlm();//头条新闻
-
-		mylist02_1=sy.selectlm04(str1);//新闻的前四条
-		mylist02_2=sy.selectlm04(str2);//新闻的前四条
-		mylist02_3=sy.selectlm04(str3);//新闻的前四条
-		mylist02_4=sy.selectlm04(str4);//新闻的前四条
-		mylist02.add(mylist02_1);
-		mylist02.add(mylist02_2);
-		mylist02.add(mylist02_3);
-		mylist02.add(mylist02_4);
+		
+		ArrayList<XiangXiNewsPojo> list = sy.selectTop4();
+		ArrayList<ArrayList<XiangXiNewsPojo>> mylist02 = new ArrayList<ArrayList<XiangXiNewsPojo>>();
+		ArrayList<XiangXiNewsPojo> mylist03 = new ArrayList<XiangXiNewsPojo>();
+		for(int i = 0;i<list.size();i++){
+			ArrayList<XiangXiNewsPojo> mylist02_1 = new ArrayList<XiangXiNewsPojo>();			
+			mylist02_1=sy.selectlm04(list.get(i).getLmname());//新闻的前四条
+			mylist02.add(mylist02_1);
+		}		
 
 		mylist03=sy.selectlm05();//动态获得导航栏
 		session.setAttribute("mylist01", mylist01);

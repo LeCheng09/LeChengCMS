@@ -30,6 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    %>
    -->
     <h2>修改失败！</h2>
-   <a href="xiugai.jsp">返回</a>
+   <a href="main.jsp">返回</a>
   </body>
 </html>
