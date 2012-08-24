@@ -96,7 +96,36 @@
     <servlet-name>ShouYeServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.ShouYeServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangedNewsServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.ChangedNewsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewsListServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.NewsListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangeNewsServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.ChangeNewsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteNewsAllServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.DeleteNewsAllServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteNewsServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.DeleteNewsServlet</servlet-class>
+  </servlet>
 
   
 
@@ -148,6 +177,26 @@
   <servlet-mapping>
     <servlet-name>ShouYeServlet</servlet-name>
     <url-pattern>/servlet/ShouYeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangedNewsServlet</servlet-name>
+    <url-pattern>/servlet/ChangedNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsListServlet</servlet-name>
+    <url-pattern>/servlet/NewsListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangeNewsServlet</servlet-name>
+    <url-pattern>/servlet/ChangeNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsAllServlet</servlet-name>
+    <url-pattern>/servlet/DeleteNewsAllServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsServlet</servlet-name>
+    <url-pattern>/servlet/DeleteNewsServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
