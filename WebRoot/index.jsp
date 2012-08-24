@@ -10,7 +10,7 @@
 		<title>欢迎访问乐成科技</title>
 	</head>
 	<body>
-
+<%session.invalidate();  %>
 		<!-- Layout -->
 		<div id="layout">
 			<!-- Header -->
@@ -114,39 +114,27 @@
 								<div class="clear"></div>
 							</div>
 						</div>
-							
-						<div class="article">
-						
-							<c:forEach items="${mylist03}" var="temp03" varStatus="vs">
-							
-							<table width="90%" border="1" align="center"
-								style="margin-left: 30px" border="1px">
-								
-								<tr><h2>
-								<a href="servlet/QianTaiNewsServlet?lmname=${vs.count}">${temp03.lmname}</a>								
-							</h2><a href="servlet/QianTaiNewsServlet?lmname=${vs.count}" class="more">MORE</a></tr>
-										<c:forEach items="${mylist02}" var="temp02" varStatus="vs02" step="${4-vs.index}" begin="${vs.index}">
-												<c:forEach items="${temp02}" var="temp01" varStatus="vs01">
-													<tr>
-														<td width="88%">
-															<a href="servlet/XiangXiNews?id=${temp01.id }">${temp01.title }</a>
-														</td>
-														<td width="10%">
-															${temp01.time}
-														</td>
-													</tr>
-										
-												</c:forEach>
-											</c:forEach>
+<c:forEach items="${mylist03}" var="temp03" varStatus="vs">
+<div class="article">
+               <h2><a href="servlet/QianTaiNewsServlet?lmname=${vs.count}">${temp03.lmname}</a>	</h2>
+              
+<table width="90%" border="0" align="center" style="margin-left:30px">
+<c:forEach items="${mylist02}" var="temp02" varStatus="vs02" step="${4-vs.index}" begin="${vs.index}">
+	<c:forEach items="${temp02}" var="temp01" varStatus="vs01">
+		  <tr>
+		    <td width="2%"><img src="img/arr.gif" alt="" width="3" height="6" /></td>
+		    <td width="88%"><a href="servlet/XiangXiNews?id=${temp01.id }">${temp01.title }</a></td>
+		    <td width="10%">${temp01.time}</td>
+		  </tr>
+	</c:forEach>
+</c:forEach>
+</table>
 
-							</table><br/>
-							
-							</c:forEach>
-					
-							<div class="clear"></div>
-
-						</div>
- 
+               <a href="servlet/QianTaiNewsServlet?lmname=${vs.count}" class="more">MORE</a>
+              <div class="clear"></div>
+      
+</div>
+</c:forEach>
 
 					</div>
 				</div>

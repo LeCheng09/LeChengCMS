@@ -86,7 +86,7 @@ function list(idstr){
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">
-						[&nbsp;<a href="../servlet/RemoveServlet" target="_top" class="left-font01">退出</a>&nbsp;]</td>
+						[&nbsp;<a href="../index.jsp" target="_top" class="left-font01">退出</a>&nbsp;]</td>
 				  </tr>
 				</table>
 			</td>
@@ -117,7 +117,7 @@ function list(idstr){
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu21" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="listrenwu.htm" target="mainFrame" class="left-font03" onClick="tupian('21');">新闻列表</a></td>
+				  <td width="91%"><a href="../servlet/NewsListServlet" target="mainFrame" class="left-font03" onClick="tupian('21');">新闻列表</a></td>
 				</tr>
       </table>
 		<!--  任务系统结束    -->

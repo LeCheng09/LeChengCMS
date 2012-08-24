@@ -6,7 +6,7 @@
     
     <title>My JSP 'tianjiano.jsp' starting page</title>
     <c:if test="${sessionScope.name == null}" >
-		<c:redirect url="../LoginJsp.jsp"/>
+		<c:redirect url="LoginJsp.jsp"/>
   </c:if>
     
 	<meta http-equiv="pragma" content="no-cache">

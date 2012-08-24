@@ -1,22 +1,21 @@
 package com.lecheng.cms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.lecheng.cms.dao.UserDao;
+import com.lecheng.cms.dao.ChangeNews;
 
-public class RegisterServlet extends HttpServlet {
+@SuppressWarnings("serial")
+public class ChangedNewsServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public RegisterServlet() {
+	public ChangedNewsServlet() {
 		super();
 	}
 
@@ -40,6 +39,7 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		this.doPost(request, response);
 	}
 
@@ -55,20 +55,22 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		//获取name值
-		String usname = request.getParameter("yhm");
-		//获取真实姓名
-		String name = request.getParameter("yhxm");
-		//密码
-		String pasword = request.getParameter("mm");
-		boolean flag = false;
-		UserDao ud = new UserDao();
-		flag = ud.reg(usname,pasword,name);
-		if(flag){
-			response.sendRedirect("../tianjiaok.jsp"); //重定向
-		}else{
-			response.sendRedirect("../tianjiano.jsp");
+		String id = request.getParameter("id");
+		String title = request.getParameter("title");
+		String sec_title = request.getParameter("sec_title");
+		String time = request.getParameter("time");
+		String author = request.getParameter("author");
+		String userid = request.getParameter("userid");
+		String lmid = request.getParameter("lmid");
+		String content = request.getParameter("content");
+		ChangeNews cn = new ChangeNews();
+		int num = 0;
+		num = cn.changeNews(Integer.parseInt(id), title, sec_title, time, author, Integer.parseInt(userid), Integer.parseInt(lmid), content);
+		if(num > 0){
+			NewsListServlet nls = new NewsListServlet();
+			nls.doPost(request, response);
 		}
 	}
 
