@@ -36,10 +36,11 @@ public class UpdataLm extends HttpServlet {
 		LmDao ld = new LmDao();
 		int rs;
 		rs = ld.UpdateLm(id, name);
-
+       if(rs>0){
 		request.setAttribute("rs", rs);
-		RequestDispatcher dp = request.getRequestDispatcher("链接"); // 请求转发
+		RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp"); // 请求转发
 		dp.forward(request, response);
+       }
 	}
 
 	public void init() throws ServletException {

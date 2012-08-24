@@ -41,12 +41,11 @@ public class LmUpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("lmname");
-		System.out.println(id);
-		System.out.println(name);
 		int rst=0;
 		 rst=ld.UpdateLm(id, name);
 		 if(rst>0){
-		RequestDispatcher dp = request.getRequestDispatcher("../files/LmUpdate.jsp");  //请求转发
+			 request.setAttribute("rst", rst);
+		RequestDispatcher dp = request.getRequestDispatcher("../servlet/SelectServlet");  //请求转发
 		dp.forward(request, response); 
 		 }
 	}
