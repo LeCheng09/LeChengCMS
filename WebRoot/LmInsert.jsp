@@ -28,7 +28,7 @@ function popwin(flag){
 </style>
 </head>
 
-<body class="ContentBody" onload="popwin(${flag})">
+<body class="ContentBody" onload="popwin('${flag}')">
   <form action="servlet/LmInsertServlet" method="post"  id="form" target="sypost" >
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">

@@ -105,6 +105,8 @@
     <servlet-class>com.lecheng.cms.servlet.LmInsertServlet</servlet-class>
   </servlet>
 
+
+
   
   <servlet-mapping> 
     <servlet-name>SelectContentServlet</servlet-name>
@@ -159,6 +161,7 @@
     <servlet-name>LmInsertServlet</servlet-name>
     <url-pattern>/servlet/LmInsertServlet</url-pattern>
   </servlet-mapping>
+
 
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
