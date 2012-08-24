@@ -143,7 +143,7 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu17" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="sendxiaoxi.htm" target="mainFrame" class="left-font03" onClick="tupian('17');">添加栏目</a></td>
+						<a href="../LmInsert.jsp" target="mainFrame" class="left-font03" onClick="tupian('17');">添加栏目</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu18" src="../images/ico06.gif" width="8" height="12" /></td>
