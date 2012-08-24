@@ -186,6 +186,11 @@
     <url-pattern>/servlet/SelectServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>UpdataLm</servlet-name>
+    <url-pattern>/servlet/UpdataLm</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
     <servlet-name>LmUpdateServlet</servlet-name>
     <url-pattern>/servlet/LmUpdateServlet</url-pattern>
   </servlet-mapping>
@@ -218,6 +223,7 @@
     <servlet-name>ShouYeServlet</servlet-name>
     <url-pattern>/servlet/ShouYeServlet</url-pattern>
   </servlet-mapping>
+
 
 
 

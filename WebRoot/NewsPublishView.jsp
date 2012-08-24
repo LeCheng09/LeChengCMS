@@ -2,21 +2,16 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
 
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-
 	<head>
 
 		<title>My JSP 'NewsPublishView.jsp' starting page</title>
 <c:if test="${sessionScope.name == null}" >
 		<c:redirect url="LoginJsp.jsp"/>
 </c:if>
-		
+		 <script language="javascript" type="text/javascript" src="${pageContext.request.contextPath }/My97DatePicker/WdatePicker.js"></script>
 		<link rel="stylesheet" rev="stylesheet" href="css/style.css" type="text/css" media="all" />
 		<script type="text/javascript" language="javascript">
     	function back(){
@@ -42,10 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		
     	}
     </script>
-    <script language="javascript" type="text/javascript" src="My97DatePicker/WdatePicker.js">
-   		
-    </script>
-		<style type="text/css">
+   
+<style type="text/css">
 <!--
 .atten {
 	font-size: 12px;
@@ -79,14 +72,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						新闻标题：				</td>
 					<td width="27%"><input type="text" maxlength="25" name="title" id="title"></td>
 					<td nowrap align="right" width="11%">副标题： </td>
-					<td width="27%"><input type="text" maxlength="25" name="sec_title"></td>
+					<td width="27%">
+					<input type="text" maxlength="25" name="sec_title">
+					</td>
 				</tr>
 				<tr>
 					<td nowrap align="right" width="11%">发布时间： </td>
 					<td width="27%">
 					
-					<input id="time" type="text" name="time"/>
-<img onclick="WdatePicker({el:'time'})" src="My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle" />
+					<input id="time" type="text" name="time" />
+<img onclick="WdatePicker({el:'time'});" src="${pageContext.request.contextPath }/My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle">
 					<%
     				//Date nows = new Date();
     				//SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
