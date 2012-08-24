@@ -64,10 +64,10 @@ public class RemoveServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("name") != null) {
-			session.removeAttribute("name");
-			response.sendRedirect("../LoginJsp.jsp");
-		}
+			if(session.getAttribute("name") != null){
+				session.removeAttribute("name");
+				response.sendRedirect("../index.jsp");
+			}
 	}
 
 	/**

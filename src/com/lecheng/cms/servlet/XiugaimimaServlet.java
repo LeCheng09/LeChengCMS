@@ -3,6 +3,7 @@ package com.lecheng.cms.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -77,6 +78,7 @@ public class XiugaimimaServlet extends HttpServlet {
 		// String newname2 = request.getParameter("newpasword2");
 
 		boolean flag = false;
+		//String str="";
 		UserDao ud = new UserDao();
 
 
@@ -85,14 +87,25 @@ public class XiugaimimaServlet extends HttpServlet {
 		} else {
 
 		flag = ud.xiugai(newpasword, name, oldpasword);
+		//if(flag){
+			//javax.swing.JOptionPane.showMessageDialog(null,"修改成功！");
+		//}else{
+			//javax.swing.JOptionPane.showMessageDialog(null,"修改失败！");
+		//}
+		//System.out.println(flag);
 		if(flag){
-			response.sendRedirect("../chenggong.jsp"); //重定向
+			response.sendRedirect("../chenggong.jsp");
 		}else{
 
 			response.sendRedirect("../shibai.jsp");
 		}
+
+		//session.setAttribute("str", str);
+		//response.sendRedirect("xiugaimima.jsp");
+		
+
 	}
-	}
+}
 
 	/**
 	 * Initialization of the servlet. <br>

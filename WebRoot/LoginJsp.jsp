@@ -50,11 +50,16 @@
 		document.getElementById("textfield").value = "";
 		document.getElementById("textfield2").value = "";
 		}
+		function login(msg){
+			if(msg != ""){
+				alert(msg);
+			}
+		}
    </script>
 
   </head>
   
-  <body>
+  <body onload="login('${err}')">
     <form id="form1" name="form1" method="post">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	  <tr>

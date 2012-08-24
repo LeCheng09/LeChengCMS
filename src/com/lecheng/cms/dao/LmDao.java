@@ -75,8 +75,9 @@ public class LmDao {
 		int rst = 0;
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, id);
-			ps.setString(2, name);
+			ps.setString(1, name);
+			ps.setInt(2, id);
+			
 			rst = ps.executeUpdate();
 			db.closeConn(null, ps, conn);
 		} catch (Exception e) {

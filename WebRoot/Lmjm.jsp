@@ -6,7 +6,9 @@
   <head>
     
     <title>My JSP 'Lmjm.jsp' starting page</title>
-    
+<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="LoginJsp.jsp"/>
+</c:if>
 
   </head>
   

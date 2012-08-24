@@ -31,14 +31,16 @@ public class SelectServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<LmPojo> list = new ArrayList<LmPojo>();
-		request.setCharacterEncoding("UTF-8");
-		LmDao id = new LmDao();
-		list = id.selectlm();
-		request.setAttribute("mylist", list);
-		RequestDispatcher dp = request
-				.getRequestDispatcher("../files/Lmlist.jsp"); // 请求转发
-		dp.forward(request, response);
+
+		    ArrayList<LmPojo> list = new ArrayList<LmPojo>();
+			request.setCharacterEncoding("UTF-8");
+			LmDao id = new LmDao();
+			list = id.selectlm();
+			request.setAttribute("mylist", list);
+			RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp");  //请求转发
+			dp.forward(request, response);
+
+	
 	}
 
 	public void init() throws ServletException {
