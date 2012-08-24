@@ -98,6 +98,25 @@ function showbmsq(reply){
 		return;
 	}
 }
+function ok(){
+	var String name = document.getElementById("yhm");
+	var String rename = document.getElementById("yhxm");
+	var String parsword = document.getElementById("mm");
+	var String word = document.getElementById("checkmm");
+	
+	if(name == ""){
+		alert("用户名不能为空！");
+	}else if(rename == ""){
+		alert("用户真实姓名不能为空！");
+	}else if(parsword == ""){
+		alert("密码不能为空！");
+	}else if(parsword != word){
+		alert("密码不能为空！");
+	}else{
+		var myform = document.getElementById("form1");
+		myform.submit();
+	}
+}
 -->
 </script>
 
@@ -146,7 +165,7 @@ function showbmsq(reply){
                 <table width="623" height="41" border="0" cellpadding="0" cellspacing="0">
                 	<tr align="center">
 						<td width="201">&nbsp;</td>
-                        <td width="107"><input onClick="javascript:save1();" type="image" src="../user2/images/register_22.gif" width="82" height="23"  /></td>
+                        <td width="107"><input onClick="ok();" type="image" src="../user2/images/register_22.gif" width="82" height="23"  /></td>
                         <td width="62"><input onclick="resetform();" type="image" src="../user2/images/rr_24.gif" width="62" height="23"></td>
 						<td width="201">&nbsp;</td>
                     </tr>
