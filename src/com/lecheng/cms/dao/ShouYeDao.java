@@ -27,7 +27,6 @@ public class ShouYeDao {
 				XiangXiNewsPojo xw = new XiangXiNewsPojo();
 				
 				xw.setContent(rs.getString(1));
-				
 				list.add(xw);
 			}
 			rs.close();
