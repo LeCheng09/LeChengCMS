@@ -28,11 +28,11 @@ public class LmInsertServlet extends HttpServlet {
 		if(name != ""){
 			flag = ud.InsertLm(name);
 		} else {
-			session.setAttribute("flag", flag);
+			request.setAttribute("flag", flag);
 			response.sendRedirect("../LmInsert.jsp");
 		}
 		if(flag){
-			session.setAttribute("flag", flag);
+			request.setAttribute("flag", flag);
 			response.sendRedirect("../LmInsert.jsp");
 		}
 	}

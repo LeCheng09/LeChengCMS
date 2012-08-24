@@ -55,11 +55,19 @@
 				alert(msg);
 			}
 		}
+		
+		function login(msg){
+			if(msg == false){
+				alert("用户信息不存在！");
+			}
+		}
+		
    </script>
 
   </head>
   
-  <body onload="login('${err}')">
+  <body onload="login(${err})">
+  <%session.removeAttribute("err"); %>
     <form id="form1" name="form1" method="post">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	  <tr>
