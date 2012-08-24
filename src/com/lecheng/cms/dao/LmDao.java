@@ -22,6 +22,7 @@ public class LmDao {
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, name);
+			ren = ps.executeUpdate();
 			db.closeConn(null, ps, conn);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -14,11 +14,14 @@ function sub(){
   f.submit(); 
   }
 function popwin(flag){
-	 if(flag == ""){
+     
+	 if(flag == false){
 	  	alert("内容不能为空，请重新插入！");
 	 } else {
 	  	alert("插入成功！");
+	  	flag=false;
 	 }
+	 session.remove();
 } 
 </script>
 <style type="text/css">
@@ -67,6 +70,7 @@ function popwin(flag){
 			<td colspan="2" align="center" height="50px" >
 			<input type="button" name="Submit" value="发送" class="button" onclick="sub();"/>　	
 			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/>
+			</td>
 		</tr>
 		</table>
 	
