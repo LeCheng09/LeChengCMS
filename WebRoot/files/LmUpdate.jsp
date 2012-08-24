@@ -5,9 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>栏目管理列表</title>
-<c:if test="${sessionScope.name == null}" >
-		<c:redirect url="../LoginJsp.jsp"/>
-</c:if>
 <style type="text/css">
 <!--
 body {
@@ -45,51 +42,17 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
 <script type="text/JavaScript">
-
+function con(){
+  var f = document.getElementById("fom1");
+  f.submit();
+}
 </script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
-<SCRIPT SelectServlet.java>
-function sousuo(){
-	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
-}
-function selectAll(){
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			obj[i].checked = true;
-		}
-	}
-}
 
-function unselectAll(){
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			if (obj[i].checked==true) obj[i].checked = false;
-			else obj[i].checked = true;
-		}
-	}
-}
-
-function link(){
-    document.getElementById("fom").action="addrenwu.htm";
-    document.getElementById("fom").submit();
-}
-
-function con(){
-	if (confirm("确定删除吗？")) {
-			<c:forEach items="${mylist}" var="temp">
-			var del = document.getElementById("${temp.id}");
-			del.href = "../servlet/DelLmServlet?id=${temp.id}";
-			</c:forEach>
-			}
-}
-
-</SCRIPT>
 
 <body>
-<form name="fom" id="fom" method="post" action="servlet/SelectServlet">
+<form name="fom" id="fom1" method="post"  action="../servlet/LmUpdateServlet">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
   <tr>
@@ -129,7 +92,7 @@ function con(){
           	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="30"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-	              <input name="Submit" type="button" class="right-button08" value="删除所选任务" />
+	              <input name="Submit" type="button" class="right-button08" value="删除所选任务" onclick="return confirm(' 你确定删除所选内容？')"/>
 	              <input name="Submit2" type="button" class="right-button08" value="添加任务" onclick="link();"/></td>
           	 </tr>
              <tr>
@@ -145,16 +108,18 @@ function con(){
 							<td width="10%" align="center">栏目名称</td>
 							<td width="12%">操作</td>
 	                  	 </tr>
-	                   <c:forEach items="${mylist}" var="temp">		   
+	    		   
 		                  <tr bgcolor="#FFFFFF">
-						    <td height="20" align="center"><input type="checkbox" name="delid"/></td>
-		                    <td align="center">${temp.id}</td>
-						    <td align="center">${temp.lmname}</td>
-		                    <td><a href="../files/LmUpdate.jsp">编辑|</a>
-								<a href="#" id="${temp.id}" onclick="con();">删除</a>
+						    <td height="20" align="center">
+						    	<input type="checkbox" name="delid" value=""/>
+						    </td>
+		                    <td align="center"><input name="id" type="text" /></td>
+						    <td align="center"> <input name="lmname" type="text"/></td>
+							<td align="center">
+								<input type = "submit"  value="确定"/>
 							</td>
-		                  </tr>  
-		               </c:forEach>                          
+							
+		                  </tr>                         
 	                 </table>
 	            </td>
         	</tr>
@@ -186,7 +151,7 @@ function con(){
           
           </td>
         </tr>
-      </table>
+      </table>    
       
     </td>
   </tr>

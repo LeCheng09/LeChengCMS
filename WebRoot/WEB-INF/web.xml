@@ -2,9 +2,7 @@
 <web-app version="2.5" 
 	xmlns="http://java.sun.com/xml/ns/javaee" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">	
 	  <!-- 2.4版FCKeditor配置 -->
   	<servlet>
 	   <servlet-name>Connector</servlet-name>
@@ -63,6 +61,8 @@
     <servlet-class>com.lecheng.cms.servlet.SelectTitleServlet</servlet-class>
   </servlet>
 <servlet>
+	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>LmSelectServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.LmSelectServlet</servlet-class>
   </servlet>
@@ -90,29 +90,58 @@
     <servlet-name>SelectServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.SelectServlet</servlet-class>
   </servlet>
-<servlet>
+  <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>RemoveServlet</servlet-name>
-    <servlet-class>com.lecheng.cms.servlet.RemoveServlet</servlet-class>
+    <servlet-name>LmUpdateServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.LmUpdateServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>com.lecheng.cms.servlet.RegisterServlet</servlet-class>
+    <servlet-name>LmInsertServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.LmInsertServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangedNewsServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.ChangedNewsServlet</servlet-class>
   </servlet>
   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewsListServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.NewsListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangeNewsServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.ChangeNewsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteNewsAllServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.DeleteNewsAllServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteNewsServlet</servlet-name>
+    <servlet-class>com.lecheng.cms.servlet.DeleteNewsServlet</servlet-class>
+  </servlet>
+	<servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>ShouYeServlet</servlet-name>
     <servlet-class>com.lecheng.cms.servlet.ShouYeServlet</servlet-class>
   </servlet>
 
-
   
-
-  <servlet-mapping>
+  <servlet-mapping> 
     <servlet-name>SelectContentServlet</servlet-name>
     <url-pattern>/servlet/SelectContentServlet</url-pattern>
 </servlet-mapping>
@@ -157,18 +186,48 @@
     <servlet-name>SelectServlet</servlet-name>
     <url-pattern>/servlet/SelectServlet</url-pattern>
   </servlet-mapping>
-	<servlet-mapping>
-    <servlet-name>RemoveServlet</servlet-name>
-    <url-pattern>/servlet/RemoveServlet</url-pattern>
+  <servlet-mapping>
+    <servlet-name>UpdataLm</servlet-name>
+    <url-pattern>/servlet/UpdataLm</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LmUpdateServlet</servlet-name>
+    <url-pattern>/servlet/LmUpdateServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/servlet/RegisterServlet</url-pattern>
+    <servlet-name>LmInsertServlet</servlet-name>
+    <url-pattern>/servlet/LmInsertServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>ChangedNewsServlet</servlet-name>
+    <url-pattern>/servlet/ChangedNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsListServlet</servlet-name>
+    <url-pattern>/servlet/NewsListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangeNewsServlet</servlet-name>
+    <url-pattern>/servlet/ChangeNewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsAllServlet</servlet-name>
+    <url-pattern>/servlet/DeleteNewsAllServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsServlet</servlet-name>
+    <url-pattern>/servlet/DeleteNewsServlet</url-pattern>
+  </servlet-mapping>
+
+<servlet-mapping>
     <servlet-name>ShouYeServlet</servlet-name>
     <url-pattern>/servlet/ShouYeServlet</url-pattern>
   </servlet-mapping>
+
+
+
+
   <welcome-file-list>
     <welcome-file>servlet/ShouYeServlet</welcome-file>
   </welcome-file-list>

@@ -1,50 +1,43 @@
 package com.lecheng.cms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lecheng.cms.dao.LmDao;
+import com.lecheng.cms.dao.NewsDelete;
 
-public class UpdataLm extends HttpServlet {
+@SuppressWarnings("serial")
+public class DeleteNewsServlet extends HttpServlet {
 
-	public UpdataLm() {
+	public DeleteNewsServlet() {
 		super();
 	}
 
 	public void destroy() {
-		super.destroy();
+		super.destroy(); // Just puts "destroy" string in log
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		this.doPost(request, response);
-
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("id"));
-		String name = request.getParameter("name");
-		LmDao ld = new LmDao();
-		int rs;
-		rs = ld.UpdateLm(id, name);
-       if(rs>0){
-		request.setAttribute("rs", rs);
-		RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp"); // 请求转发
-		dp.forward(request, response);
-       }
+		String id = request.getParameter("id");
+		NewsDelete nd = new NewsDelete();
+		int num = 0;
+		num = nd.deleteNews(Integer.parseInt(id));
+		if(num > 0){
+			NewsListServlet nls = new NewsListServlet();
+			nls.doPost(request, response);
+		}
 	}
 
 	public void init() throws ServletException {
-
 	}
 
 }

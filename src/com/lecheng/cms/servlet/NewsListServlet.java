@@ -1,7 +1,7 @@
 package com.lecheng.cms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,16 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lecheng.cms.dao.LmDao;
+import com.lecheng.cms.dao.NewsList;
+import com.lecheng.cms.pojo.NewsPojo;
 
-public class DelLmServlet extends HttpServlet {
+@SuppressWarnings("serial")
+public class NewsListServlet extends HttpServlet {
 
-	public DelLmServlet() {
+	public NewsListServlet() {
 		super();
 	}
 
 	public void destroy() {
-		super.destroy();
+		super.destroy(); // Just puts "destroy" string in log
+		// Put your code here
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,26 +32,16 @@ public class DelLmServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("id"));
-
-		LmDao ld = new LmDao();
-		int rs;
-		rs = ld.DelLm(id);
-		request.setAttribute("rs", rs);
-
-		SelectServlet nls = new SelectServlet();
-		nls.doPost(request, response);
-		if(rs > 0){
-			RequestDispatcher dp = request.getRequestDispatcher("files/Lmlist.jsp");  //请求转发
-			dp.forward(request, response);
-		}
-
-		RequestDispatcher dp = request.getRequestDispatcher("链接"); // 请求转发
+		ArrayList<NewsPojo> list = new ArrayList<NewsPojo>();
+		NewsList nl = new NewsList();
+		/* HttpSession session = request.getSession(); */
+		list = nl.select();
+		request.setAttribute("newslist", list);
+		RequestDispatcher dp = request.getRequestDispatcher("/files/listrenwu.jsp");
 		dp.forward(request, response);
-
 	}
+
 	public void init() throws ServletException {
 		// Put your code here
 	}
