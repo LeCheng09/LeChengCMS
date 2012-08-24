@@ -22,14 +22,16 @@ public class SelectServlet extends HttpServlet {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
 	}
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				
+
 		this.doPost(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		    ArrayList<LmPojo> list = new ArrayList<LmPojo>();
 			request.setCharacterEncoding("UTF-8");
 			LmDao id = new LmDao();
@@ -38,6 +40,7 @@ public class SelectServlet extends HttpServlet {
 			RequestDispatcher dp = request.getRequestDispatcher("../files/Lmlist.jsp");  //请求转发
 			dp.forward(request, response);
 
+	
 	}
 
 	public void init() throws ServletException {

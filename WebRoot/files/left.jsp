@@ -5,6 +5,9 @@
 <html>
 <head>
 <title>项目管理系统 by www.mycodes.net</title>
+<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="../LoginJsp.jsp"/>
+</c:if>
 <style type="text/css">
 <!--
 body {
@@ -83,7 +86,7 @@ function list(idstr){
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">
-						[&nbsp;<a href="../LoginJsp.jsp" target="_top" class="left-font01">退出</a>&nbsp;]</td>
+						[&nbsp;<a href="../servlet/RemoveServlet" target="_top" class="left-font01">退出</a>&nbsp;]</td>
 				  </tr>
 				</table>
 			</td>
@@ -165,7 +168,7 @@ function list(idstr){
 	  <table id="subtree5" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
         <tr>
           <td width="9%" height="20"><img id="xiaotu13" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="register.html" target="mainFrame" class="left-font03" onClick="tupian('13');">添加用户</a></td>
+          <td width="91%"><a href="register.jsp" target="mainFrame" class="left-font03" onClick="tupian('13');">添加用户</a></td>
         </tr>
         <tr>
           <td height="20"><img id="xiaotu14" src="../images/ico06.gif" width="8" height="12" /></td>

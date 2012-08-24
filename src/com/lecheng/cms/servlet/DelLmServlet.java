@@ -11,45 +11,44 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lecheng.cms.dao.LmDao;
 
-
-
 public class DelLmServlet extends HttpServlet {
 
-	
 	public DelLmServlet() {
 		super();
 	}
 
 	public void destroy() {
-		super.destroy(); 
+		super.destroy();
 	}
 
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		this.doPost(request, response);
 	}
 
-	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
-		
+
 		LmDao ld = new LmDao();
 		int rs;
 		rs = ld.DelLm(id);
 		request.setAttribute("rs", rs);
+
 		SelectServlet nls = new SelectServlet();
 		nls.doPost(request, response);
 		if(rs > 0){
 			RequestDispatcher dp = request.getRequestDispatcher("files/Lmlist.jsp");  //请求转发
 			dp.forward(request, response);
 		}
+
+		RequestDispatcher dp = request.getRequestDispatcher("链接"); // 请求转发
+		dp.forward(request, response);
+
 	}
-	
 	public void init() throws ServletException {
 		// Put your code here
 	}

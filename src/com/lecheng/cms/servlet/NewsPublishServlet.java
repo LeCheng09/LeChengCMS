@@ -67,7 +67,6 @@ public class NewsPublishServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-
 		String title = request.getParameter("title");
 		System.out.println("主标题：" + title);
 

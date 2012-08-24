@@ -7,11 +7,16 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
+
 	<head>
 
 		<title>My JSP 'NewsPublishView.jsp' starting page</title>
+<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="LoginJsp.jsp"/>
+</c:if>
+		
 		<link rel="stylesheet" rev="stylesheet" href="css/style.css" type="text/css" media="all" />
 		<script type="text/javascript" language="javascript">
     	function back(){
@@ -19,12 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	}
     	function tijiao(){
     		var title = document.getElementById("title").value;
+    		var time = document.getElementById("time").value;
     		var author = document.getElementById("author").value;
     		var lmid = document.getElementById("lmid").value;
     		if(title == ""){
     			alert("新闻标题不能为空  ！");
     		}else if(author==""){
     			alert("新闻作者不能为空 ！");
+    		}else if(time==""){
+    			alert("发布时间不能为空 ！");
     		}else if(lmid=="0"){
     			alert("请选择栏目编号！");
     		}else{
@@ -33,6 +41,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		}
     		
     	}
+    </script>
+    <script language="javascript" type="text/javascript" src="My97DatePicker/WdatePicker.js">
+   		
     </script>
 		<style type="text/css">
 <!--
@@ -72,12 +83,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td nowrap align="right" width="11%">发布时间： </td>
-					<td width="27%"><%
-    				Date nows = new Date();
-    				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-    				String now = s.format(nows);
-					request.setAttribute("now",now);
-					out.println("<input type='text' name='time' value='"+ now +"' readonly='readonly'/>");
+					<td width="27%">
+					
+					<input id="time" type="text" name="time"/>
+<img onclick="WdatePicker({el:'time'})" src="My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle" />
+					<%
+    				//Date nows = new Date();
+    				//SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    				//String now = s.format(nows);
+					//request.setAttribute("now",now);
+					//out.println("<input type='text' name='time' value='"+ now +"' readonly='readonly'/>");
     			 %></td>
 					<td nowrap align="right" width="11%">作者：</td>
 					<td width="27%"><input type="text" maxlength="50" name="author" id="author"></td>
@@ -88,9 +103,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					 <%
 							String userid = session.getAttribute("id").toString();
+							String username = session.getAttribute("name").toString();
 							int uid = Integer.parseInt(userid);
-							
-							out.println("<input type='text' maxlength='11' readonly='readonly' name='userid' value='"+uid+"'>");
+							out.println("<input type='hidden' maxlength='11' readonly='readonly' name='userid' value='"+userid+"'>");
+							out.println("<input type='text' maxlength='11' readonly='readonly' name='username' value='"+username+"'>");
 						 %>
 					</td>
 					<td nowrap align="right" width="11%">栏目编号： </td>
@@ -130,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<tr>
 					<td align="center" colspan="4">
-						<input type="button" value="发布" class="button" onclick="tijiao();"/>
+						<input type="button" value="发布" class="button" onClick="tijiao();"/>
 						<input type="reset" value="重置" class="button"/>
 						<input type="button" value="返回" onClick="back();" class="button" />
 						</td>

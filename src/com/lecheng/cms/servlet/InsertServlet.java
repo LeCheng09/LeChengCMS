@@ -24,17 +24,18 @@ public class InsertServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String name = request.getParameter("lmname");
 		System.out.println("栏目名称：" + name);
 		//
 		boolean flag = false;
 		LmDao ud = new LmDao();
 		flag = ud.InsertLm(name);
-		if(flag){
-			response.sendRedirect("../Login.jsp"); //重定向
+		if (flag) {
+			response.sendRedirect("../Login.jsp"); // 重定向
 		}
 	}
+
 	public void init() throws ServletException {
 		// Put your code here
 	}
