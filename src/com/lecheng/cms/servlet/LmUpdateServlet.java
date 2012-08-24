@@ -37,16 +37,18 @@ public class LmUpdateServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		LmDao ld = new LmDao();
 		request.setCharacterEncoding("UTF-8");
 		int id = Integer.parseInt(request.getParameter("id"));
-		String name = request.getParameter("name");
-		LmDao ld = new LmDao();
-		int rs;
-		rs = ld.UpdateLm(id, name);
-		request.setAttribute("rs", rs);
-		RequestDispatcher dp = request.getRequestDispatcher("../Lmlist.jsp");  //请求转发
+		String name = request.getParameter("lmname");
+		System.out.println(id);
+		System.out.println(name);
+		int rst=0;
+		 rst=ld.UpdateLm(id, name);
+		 if(rst>0){
+		RequestDispatcher dp = request.getRequestDispatcher("../files/LmUpdate.jsp");  //请求转发
 		dp.forward(request, response); 
+		 }
 	}
 
 

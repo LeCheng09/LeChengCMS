@@ -24,6 +24,7 @@ public class LmDao {
 		try{
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, name);
+		    ps.executeUpdate();
 			db.closeConn(null, ps, conn);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
@@ -71,15 +72,21 @@ public class LmDao {
 		}
 		
 		public int UpdateLm(int id,String name) {
-			conn = db.getConn();
+			
+			
 			String sql = " UPDATE lm SET lmname = ? WHERE id=?";
 			int rst = 0;
+			conn = db.getConn();
 			try{
 				ps = conn.prepareStatement(sql);
-				ps.setInt(1, id);
-				ps.setString(2, name);
-				rst = ps.executeUpdate();
-				db.closeConn(null, ps, conn);
+				
+				ps.setString(1, name);
+				ps.setInt(2, id);
+			   rst=ps.executeUpdate();
+                 System.out.println(id);
+                 System.out.println(name);
+	
+				db.closeConn(rs, ps, conn);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}

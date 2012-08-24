@@ -52,7 +52,7 @@ function con(){
 
 
 <body>
-<form name="fom" id="fom1" method="post"  action="servlet/LmUpdateServlet">
+<form name="fom" id="fom1" method="post"  action="../servlet/LmUpdateServlet">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
   <tr>
