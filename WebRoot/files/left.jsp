@@ -83,8 +83,6 @@ function list(idstr){
 				  <tr>
 					<td width="25%" rowspan="2"><img src="../images/ico02.gif" width="35" height="35" /></td>
 					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02"><c:out value="${sessionScope.name}" /></span></td>
-					<%session.removeAttribute("name"); %>
-					<%session.removeAttribute("id"); %>
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">

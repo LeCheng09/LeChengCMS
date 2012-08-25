@@ -91,30 +91,40 @@
 				<!-- Content -->
 				<div id="obsah" class="content box">
 					<div class="in">
-
 						<div class="article">
 
 							<h2>
 								${sessionScope.lmname}
 							</h2>
-
-
 							<table width="90%" border="0" align="center"
 								style="margin-left: 30px" border="1px">
 								<c:forEach items="${mylist}" var="temp" >
 								<tr>
 									<td >
 										<h3>${temp.title}</h3>
-									</td></tr>
-									<tr>
+									</td>
+								</tr>
+								<tr>
+									<td algin="right">
+										<h5>${temp.sec_title}</h5>
+									</td>
+								</tr>
+								<tr>
+									<td algin="left">
+										<h5>${temp.time}</h5>
+									</td>
+									<td algin="right">
+										<h5>${temp.author}</h5>
+									</td>
+								</tr>
+								<tr>
 									<td >
 										${temp.content}
 									</td>
 								</tr>
-								</c:forEach>
+							</c:forEach>
 							</table>
 							<div class="clear"></div>
-
 						</div>
 					</div>
 				</div>

@@ -79,14 +79,15 @@ public class ShouYeServlet extends HttpServlet {
 		session.setAttribute("mylist02", mylist02);
 		session.setAttribute("mylist03", mylist03);
 		
-		
-		if(session.getAttribute("exitsuccess") != null){
-			session.removeAttribute("exitsuccess");
-			response.sendRedirect("../index.jsp");
-		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("../index.jsp");
-			rd.forward(request, response);
-		}
+		RequestDispatcher rd = request.getRequestDispatcher("../index.jsp");
+		rd.forward(request, response);
+//		if(session.getAttribute("exitsuccess") != null){
+//			session.removeAttribute("exitsuccess");
+//			response.sendRedirect("../index.jsp");
+//		}else{
+//			RequestDispatcher rd = request.getRequestDispatcher("../index.jsp");
+//			rd.forward(request, response);
+//		}
 		
 	}
 

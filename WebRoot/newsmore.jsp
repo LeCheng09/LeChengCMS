@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
   <head>
@@ -87,7 +88,35 @@
             <div id="new-article">
               <div id="corner">
                 <h2><a href="#">头条新闻</a></h2>
-                &nbsp;&nbsp;&nbsp;&nbsp;${str }
+               		<table width="90%" border="0" align="center"
+								style="margin-left: 30px" border="1px">
+								<c:forEach items="${list}" var="temp" >
+								<tr>
+									<td >
+										<h3>${temp.title}</h3>
+									</td>
+								</tr>
+								<tr>
+									<td algin="right">
+										<h5>${temp.sec_title}</h5>
+									</td>
+									
+								</tr>
+								<tr>
+									<td algin="left">
+										<h5>${temp.time}</h5>
+									</td>
+									<td algin="right">
+										<h5>${temp.author}</h5>
+									</td>
+								</tr>
+								<tr>
+									<td >
+										${temp.content}
+									</td>
+								</tr>
+							</c:forEach>
+							</table>
               </div>
             </div>
           </div>
