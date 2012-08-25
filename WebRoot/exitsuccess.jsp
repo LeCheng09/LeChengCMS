@@ -23,7 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    退出成功！<%response.setHeader("Refresh","1;url=servlet/ShouYeServlet"); %>
-    <%session.setAttribute("exitsuccess","exitsuccess"); %>
+  <%session.invalidate(); %>
+   <%response.setHeader("Refresh","1;url=servlet/ShouYeServlet"); %>
+    
   </body>
 </html>
