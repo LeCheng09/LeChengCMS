@@ -30,6 +30,7 @@ function sub(){
   f.action="files/mainfra.jsp";
   f.target = "_self";
   f.submit();
+  
  }
 </script>
 <style type="text/css">
