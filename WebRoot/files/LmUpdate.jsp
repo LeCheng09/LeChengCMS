@@ -91,9 +91,7 @@ function con(){
           <td>
           	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="30"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-	              <input name="Submit" type="button" class="right-button08" value="删除所选任务" onclick="return confirm(' 你确定删除所选内容？')"/>
-	              <input name="Submit2" type="button" class="right-button08" value="添加任务" onclick="link();"/></td>
+               <td height="30"><span class="newfont07">选择：</span></td>
           	 </tr>
              <tr>
                 <td height="40" class="font42">
