@@ -23,7 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+
     <% session.invalidate(); %>
     <jsp:forward page="servlet/ShouYeServlet"></jsp:forward>
+
   </body>
 </html>
