@@ -17,7 +17,7 @@ public class NewsList {
 		ArrayList<NewsPojo> list = new ArrayList<NewsPojo>();
 		DataBase db = new DataBase();
 		conn = db.getConn();
-		String sql = "SELECT * From news";
+		String sql = "SELECT * From news ORDER BY TIME DESC";
 		try{
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();

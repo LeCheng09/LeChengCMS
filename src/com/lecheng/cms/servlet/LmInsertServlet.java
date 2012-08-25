@@ -23,16 +23,18 @@ public class LmInsertServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("lmname");
+		System.out.println(name);
 		boolean flag = false;
 		LmDao ud = new LmDao();
 		if(name != ""){
 			flag = ud.InsertLm(name);
 		} else {
-			request.setAttribute("flag", flag);
+			flag = false;
+			session.setAttribute("flag", flag);
 			response.sendRedirect("../LmInsert.jsp");
 		}
 		if(flag){
-			request.setAttribute("flag", flag);
+			session.setAttribute("flag", flag);
 			response.sendRedirect("../LmInsert.jsp");
 		}
 	}
