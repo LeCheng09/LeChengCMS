@@ -67,7 +67,6 @@
   </head>
   
   <body onload="login(${err})">
-  <%session.removeAttribute("err"); %>
     <form id="form1" name="form1" method="post">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	  <tr>

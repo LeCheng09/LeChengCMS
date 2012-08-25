@@ -1,43 +1,49 @@
 package com.lecheng.cms.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.lecheng.cms.dao.LmDao;
+import com.lecheng.cms.dao.NewsDelete;
 
-public class LmInsertServlet extends HttpServlet {
+public class LmDelServlet extends HttpServlet {
+
+	public LmDelServlet() {
+		super();
+	}
+
+	public void destroy() {
+		super.destroy(); // Just puts "destroy" string in log
+		// Put your code here
+	}
+
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		this.doPost(request, response);
+	this.doPost(request, response);
 	}
 
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
+
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("lmname");
-		System.out.println(name);
-		boolean flag = false;
-		LmDao ud = new LmDao();
-		if(name != ""){
-			flag = ud.InsertLm(name);
-		} else {
-			flag = false;
-			session.setAttribute("flag", flag);
-			response.sendRedirect("../LmInsert.jsp");
+		LmDao ld = new LmDao();
+		String[] lth = request.getParameterValues("delid");
+		for(int i=0;i<lth.length;i++){
+			ld.DelLm(Integer.parseInt(lth[i]));
 		}
-		if(flag){
-			session.setAttribute("flag", flag);
-			response.sendRedirect("../LmInsert.jsp");
-		}
+		SelectServlet nls = new SelectServlet();
+		nls.doPost(request, response);
 	}
+
+	
 	public void init() throws ServletException {
 		// Put your code here
 	}

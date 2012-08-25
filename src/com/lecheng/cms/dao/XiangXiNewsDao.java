@@ -19,7 +19,7 @@ public class XiangXiNewsDao {
 	 */
 	public ArrayList<XiangXiNewsPojo> selectlm(int id) {
 		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
-		String sql = "SELECT title,content,id FROM news WHERE id=?";
+		String sql = "SELECT title,sec_title,author,TIME,content,id FROM news WHERE id=?";
 		conn = db.getConn();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -28,8 +28,11 @@ public class XiangXiNewsDao {
 			while (rs.next()) {
 				XiangXiNewsPojo xw = new XiangXiNewsPojo();
 				xw.setTitle(rs.getString(1));
-				xw.setContent(rs.getString(2));
-				xw.setId(rs.getInt(3));
+				xw.setSec_title(rs.getString(2));
+				xw.setAuthor(rs.getString(3));
+				xw.setTime(rs.getString(4));
+				xw.setContent(rs.getString(5));
+				xw.setId(rs.getInt(6));
 				list.add(xw);
 			}
 			rs.close();
