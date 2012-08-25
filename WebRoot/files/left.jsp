@@ -82,11 +82,13 @@ function list(idstr){
 				<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
 				  <tr>
 					<td width="25%" rowspan="2"><img src="../images/ico02.gif" width="35" height="35" /></td>
-					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02"><c:out value="${sessionScope.name}" default="用户不存在！"/></span></td>
+					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02"><c:out value="${sessionScope.name}" /></span></td>
+					<%session.removeAttribute("name"); %>
+					<%session.removeAttribute("id"); %>
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">
-						[&nbsp;<a href="../servlet/RemoveServlet" target="_top" class="left-font01">退出</a>&nbsp;]</td>
+						[&nbsp;<a href="../exitsuccess.jsp" target="_top" class="left-font01" >退出</a>&nbsp;]</td>
 				  </tr>
 				</table>
 			</td>

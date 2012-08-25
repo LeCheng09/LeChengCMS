@@ -5,7 +5,7 @@
   <head>
     <title>My JSP 'shibai.jsp' starting page</title>
     <c:if test="${sessionScope.name == null}" >
-		<c:redirect url="../LoginJsp.jsp"/>
+		<c:redirect url="LoginJsp.jsp"/>
   </c:if>
   </head>
   

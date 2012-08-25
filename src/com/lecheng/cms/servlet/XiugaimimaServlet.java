@@ -78,33 +78,15 @@ public class XiugaimimaServlet extends HttpServlet {
 		// String newname2 = request.getParameter("newpasword2");
 
 		boolean flag = false;
-		//String str="";
 		UserDao ud = new UserDao();
 
-
-		if (flag) {
-			response.sendRedirect("../chenggong.jsp"); // 重定向
-		} else {
-
 		flag = ud.xiugai(newpasword, name, oldpasword);
-		//if(flag){
-			//javax.swing.JOptionPane.showMessageDialog(null,"修改成功！");
-		//}else{
-			//javax.swing.JOptionPane.showMessageDialog(null,"修改失败！");
-		//}
-		//System.out.println(flag);
 		if(flag){
 			response.sendRedirect("../chenggong.jsp");
 		}else{
 
 			response.sendRedirect("../shibai.jsp");
 		}
-
-		//session.setAttribute("str", str);
-		//response.sendRedirect("xiugaimima.jsp");
-		
-
-	}
 }
 
 	/**

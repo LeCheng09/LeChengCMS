@@ -66,9 +66,9 @@ public class RegisterServlet extends HttpServlet {
 		UserDao ud = new UserDao();
 		flag = ud.reg(usname,pasword,name);
 		if(flag){
-			response.sendRedirect("../chenggong.jsp"); //重定向
+			response.sendRedirect("../tianjiaok.jsp"); //重定向
 		}else{
-			response.sendRedirect("../shibai.jsp");
+			response.sendRedirect("../tianjiano.jsp");
 		}
 	}
 

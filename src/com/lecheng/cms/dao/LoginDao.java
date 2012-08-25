@@ -17,31 +17,51 @@ public class LoginDao {
 	DataBase db = new DataBase();
 
 	/**
-	 * 查找sys表信息
+	 * 判断登录是否成功
 	 * 
 	 * @return
 	 */
-	public ArrayList<SysPojo> selectSys(String username) {
-		ArrayList<SysPojo> list = new ArrayList<SysPojo>();
-		String sql = "SELECT * FROM sys WHERE username=?";
+	public boolean selectSys(String username,String pwd) {
+		
+		boolean flag = false;
+		String sql = "SELECT * FROM sys WHERE username=? AND password =?";
 		conn = db.getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
+			ps.setString(2, pwd);
 			rs = ps.executeQuery();
-			while (rs.next()) {
-				SysPojo s = new SysPojo();
-				s.setId(rs.getInt(1));
-				s.setUsername(rs.getString(2));
-				s.setPassword(rs.getString(3));
-
-				list.add(s);
+			if(rs.next()){
+				flag = true;
 			}
-			DataBase db = new DataBase();
+			//DataBase db = new DataBase();
 			db.closeConn(rs, ps, conn);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return list;
+		return flag;
 	}
+	/**
+	 * 根据用户名取id
+	 */
+	public SysPojo selectId(String name){
+		//ArrayList<SysPojo> list = new ArrayList<SysPojo>();
+		String sql = "SELECT id FROM sys WHERE username=?";
+		conn = db.getConn();
+		SysPojo s = new SysPojo();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			rs = ps.executeQuery();	
+			if(rs.next()){
+				s.setId(rs.getInt(1));
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return s;
+	}
+	 
+	
+
 }
