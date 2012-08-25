@@ -244,7 +244,7 @@ html {
 													<tr>
 														<td width="50%">
 															共
-															<span class="right-text09">5</span> 页 | 第
+															<span class="right-text09">1</span> 页 | 第
 															<span class="right-text09">1</span> 页
 														</td>
 														<td width="49%" align="right">
