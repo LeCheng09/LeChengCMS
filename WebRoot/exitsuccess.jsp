@@ -23,7 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	
-    <%response.setHeader("Refresh","1;url=servlet/ShouYeServlet"); %>
+ <%session.invalidate(); %>
+      <jsp:forward page="servlet/ShouYeServlet"></jsp:forward>
+    <%--response.setHeader("Refresh","1;url=servlet/ShouYeServlet"); --%>
   </body>
 </html>
