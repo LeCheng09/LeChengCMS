@@ -85,7 +85,7 @@ html {
 	}
 
 	function link() {
-		document.getElementById("fom").action = "addrenwu.htm";
+		document.getElementById("fom").action = "../PublishNewsFisrtView.jsp";
 		document.getElementById("fom").submit();
 	}
 
@@ -106,6 +106,9 @@ html {
 </SCRIPT>
 
 	<body>
+		<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="../LoginJsp.jsp"/>
+		</c:if>
 		<form name="fom" id="fom" method="post" action="../servlet/DeleteNewsAllServlet">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 
@@ -163,9 +166,9 @@ html {
 >反选</a>
 												</span>
 												<input name="Submit" type="button" class="right-button08"
-													value="删除所选任务" onclick="allcon();" />
+													value="删除所选新闻" onclick="allcon();" />
 												<input name="Submit2" type="button" class="right-button08"
-													value="添加任务" onclick=
+													value="添加新闻" onclick=
 	link();;
 />
 											</td>
@@ -181,31 +184,28 @@ html {
 														</td>
 													</tr>
 													<tr bgcolor="#EEEEEE" align="center">
-														<td width="4%" height="30">
+														<td width="6%" height="30">
 															选择
 														</td>
-														<td width="15%">
+														<td width="25%">
 															新闻标题
 														</td>
-														<td width="15%">
+														<td width="25%">
 															副标题
 														</td>
 														<td width="15%">
-															创建时间
+															发布时间
 														</td>
 														<td width="15%">
 															作者
 														</td>
-														<td width="21%">
-															内容
-														</td>
-														<td width="15%">
+														<td width="14%">
 															操作
 														</td>
 													</tr>
 													<c:forEach items="${newslist}" var="list">
 														<tr bgcolor="#FFFFFF">
-															<td height="20">
+															<td height="20" align="center">
 																<input type="checkbox" name="delid" value="${list.id}" />
 															</td>
 															<td>
@@ -220,13 +220,8 @@ html {
 															<td>
 																${ list.author }
 															</td>
-															<td>
-																<c:if test="${fn:length(list.content) <= 36}">${list.content}</c:if>
-																<c:if test="${fn:length(list.content) > 36}">${fn:substring(list.content,
-												0, 36)}...</c:if>	
-															</td>
 															<td align="center">
-																<a href="../servlet/ChangeNewsServlet?id=${list.id}&title=${list.title}&sec_title=${list.sec_title}&time=${list.time}&author=${list.author}&content=${list.content}">编辑</a>|
+																<a href="../servlet/ChangeNewsServlet?id=${list.id}">编辑</a>|
 																<a href="#" id="${list.id }" onclick="con();">删除</a>
 															</td>
 														</tr>

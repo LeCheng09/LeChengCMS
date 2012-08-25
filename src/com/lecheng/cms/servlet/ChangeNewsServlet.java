@@ -50,8 +50,9 @@ public class ChangeNewsServlet extends HttpServlet {
 		ArrayList<LmPojo> list2 = new ArrayList<LmPojo>();
 		list2 = npd.Selectlm();
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("selectlist", list2);
+		request.setAttribute("selectlist", list2);
+		//HttpSession session = request.getSession();
+		//session.setAttribute("selectlist", list2);
 		RequestDispatcher dp = request.getRequestDispatcher("/change.jsp");
 		dp.forward(request, response);
 		
