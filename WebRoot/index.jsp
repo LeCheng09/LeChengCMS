@@ -10,7 +10,7 @@
 		<title>欢迎访问乐成科技</title>
 	</head>
 	<body>
-<%session.invalidate();  %>
+
 		<!-- Layout -->
 		<div id="layout">
 			<!-- Header -->

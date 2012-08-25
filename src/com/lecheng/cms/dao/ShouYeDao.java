@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.lecheng.cms.base.DataBase;
 import com.lecheng.cms.pojo.QianTaiXinWenPojo;
 import com.lecheng.cms.pojo.XiangXiNewsPojo;
+import com.lecheng.cms.util.StringUtil;
 
 public class ShouYeDao {
 	private static Connection conn;
@@ -19,15 +20,19 @@ public class ShouYeDao {
 		
 		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
 		String sql = "SELECT content FROM news ORDER BY id DESC LIMIT 1";
+		StringUtil su = new StringUtil();
 		conn = db.getConn();
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				XiangXiNewsPojo xw = new XiangXiNewsPojo();
-				
-				xw.setContent(rs.getString(1));
-				
+//<<<<<<< HEAD
+				xw.setContent(su.Html2Text(rs.getString(1)));
+				System.out.println("头条新闻:" + xw.getContent());
+//=======
+//				xw.setContent(rs.getString(1));
+//>>>>>>> branch 'master' of git@github.com:LeCheng09/LeChengCMS.git
 				list.add(xw);
 			}
 			rs.close();
