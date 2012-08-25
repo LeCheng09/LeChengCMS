@@ -48,20 +48,7 @@ public class LoginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out
-				.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		this.doPost(request, response);
 	}
 
 	/**
@@ -85,20 +72,28 @@ public class LoginServlet extends HttpServlet {
 		
 		String uname = request.getParameter("username");
 		String pwd = request.getParameter("password");
-
+		SysPojo sp = new SysPojo();
 		LoginDao l = new LoginDao();
-		ArrayList<SysPojo> list = new ArrayList<SysPojo>();
-		list = l.selectSys(uname);
+//		ArrayList<SysPojo> list = new ArrayList<SysPojo>();
+		boolean flag = false;
+		flag = l.selectSys(uname, pwd);
+//		if(flag){
+//			session.setAttribute("name", uname);
+//			response.sendRedirect("../main.jsp");
+//		}
 		
-		if(list.size()>0){
-			int id = list.get(0).getId();
-			session.setAttribute("id", id);
+		
+		if(flag){
+			
+			sp = l.selectId(uname);
+			session.setAttribute("id", sp.getId());
 			session.setAttribute("name", uname);
 			response.sendRedirect("../main.jsp");
 		}else{
-			request.setAttribute("err", "用户信息不存在！");
-			RequestDispatcher rd = request.getRequestDispatcher("../LoginJsp.jsp");
-			rd.forward(request, response);
+			//session.setMaxInactiveInterval(3);
+			session.setAttribute("err", flag);
+			
+			response.sendRedirect("../LoginJsp.jsp");
 		}
 	}
 

@@ -1,13 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+    <base href="<%=basePath%>">
     
-    <title>My JSP 'tianjiano.jsp' starting page</title>
-    <c:if test="${sessionScope.name == null}" >
-		<c:redirect url="LoginJsp.jsp"/>
-  </c:if>
+    <title>My JSP 'exitsuccess.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,7 +23,9 @@
   </head>
   
   <body>
-    <h2>修改失败！</h2>
-   <a href="files/register.jsp">返回</a>
+      <%session.invalidate(); %>
+      <jsp:forward page="servlet/ShouYeServlet"></jsp:forward>
+    <%--response.setHeader("Refresh","1;url=servlet/ShouYeServlet"); --%>
+
   </body>
 </html>

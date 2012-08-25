@@ -80,8 +80,8 @@ public class LmSelectServlet extends HttpServlet {
 		session.setAttribute("selectlist", list);
 		response.sendRedirect("../NewsPublishView.jsp");
 
-		request.setAttribute("selectlist", list);
-		RequestDispatcher dp = request.getRequestDispatcher("../NewsPublishView.jsp"); //
+		//request.setAttribute("selectlist", list);
+		//RequestDispatcher dp = request.getRequestDispatcher("../NewsPublishView.jsp"); //
 
 
 		// request.setAttribute("selectlist", list);
