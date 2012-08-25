@@ -51,7 +51,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 </head>
 <SCRIPT SelectServlet.java>
 function sousuo(){
-	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
+	window.open("","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
 }
 function selectAll(){
 	var obj = document.fom.elements;
@@ -73,7 +73,7 @@ function unselectAll(){
 }
 
 function link(){
-    document.getElementById("fom").action="addrenwu.htm";
+    document.getElementById("fom").action="../LmInsert.jsp";
     document.getElementById("fom").submit();
 }
 
@@ -85,11 +85,17 @@ function con(){
 			</c:forEach>
 			}
 }
+function allcon() {
+		if (confirm("确定删除吗？")) {
+			var	fm = document.getElementById("fom");
+			fm.submit();
+		}
+	}
 
 </SCRIPT>
 
 <body>
-<form name="fom" id="fom" method="post" action="servlet/SelectServlet">
+<form name="fom" id="fom" method="post" action="../servlet/LmDelServlet">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   
   <tr>
@@ -129,7 +135,7 @@ function con(){
           	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="30"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-	              <input name="Submit" type="button" class="right-button08" value="删除所选任务" />
+	              <input name="Submit" type="button" class="right-button08" value="删除所选任务" onclick="allcon();"/>
 	              <input name="Submit2" type="button" class="right-button08" value="添加任务" onclick="link();"/></td>
           	 </tr>
              <tr>
@@ -147,7 +153,7 @@ function con(){
 	                  	 </tr>
 	                   <c:forEach items="${mylist}" var="temp">		   
 		                  <tr bgcolor="#FFFFFF">
-						    <td height="20" align="center"><input type="checkbox" name="delid"/></td>
+						    <td height="20" align="center"><input type="checkbox" value="${temp.id}" name="delid"/></td>
 		                    <td align="center">${temp.id}</td>
 						    <td align="center">${temp.lmname}</td>
 		                    <td><a href="../files/LmUpdate.jsp">编辑|</a>

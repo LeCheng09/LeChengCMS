@@ -29,7 +29,7 @@
 
 				<!-- Quick nav -->
 				<div id="quicknav">
-					<a href="index.jsp">首页</a>
+					<a href="servlet/ShouYeServlet">首页</a>
 					<a href="#">联系</a>
 					<a href="LoginJsp.jsp">登录系统</a>
 					
@@ -55,7 +55,7 @@
 			<div id="nav" class="box">
 				<ul>
 					<li id="active">
-					<a href="index.jsp">首页</a>
+					<a href="servlet/ShouYeServlet">首页</a>
 						
 					</li>
 					<!-- Active link -->

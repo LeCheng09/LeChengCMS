@@ -12,10 +12,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
 		<title>My JSP 'NewsPublishView.jsp' starting page</title>
 		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" type="text/javascript" src="${pageContext.request.contextPath }/My97DatePicker/WdatePicker.js"></script>
 		<script type="text/javascript" language="javascript">
 function back(){
 window.history.go(-1);
 }
+
+function tijiao(){
+			var reg = /^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$/;
+    		var title = document.getElementById("title").value;
+    		var time = document.getElementById("time").value;
+    		var author = document.getElementById("author").value;
+    		var lmid = document.getElementById("lmid").value;
+    		if(title == ""){
+    			alert("新闻标题不能为空  ！");
+    		}else if(author==""){
+    			alert("新闻作者不能为空 ！");
+    		}else if(time==""){
+    			alert("发布时间不能为空 ！");
+    		}else if(!time.match(reg)){
+    			alert("请输入正确的发布时间");
+    		}else{
+    			var str = document.getElementById("news");
+    			str.submit();
+    		}
+    		
+    	}
 </script>
 		<style type="text/css">
 <!--
@@ -26,10 +48,14 @@ window.history.go(-1);
 }
 -->
 </style>
-	</head>
 
+	</head>
+	
 	<body class="ContentBody">
-		<form method="post" action="../servlet/ChangedNewsServlet">
+	<c:if test="${sessionScope.name == null}" >
+		<c:redirect url="LoginJsp.jsp"/>
+	</c:if>
+		<form method="post" action="../servlet/ChangedNewsServlet" id="news" name="news">
 			<div class="MainDiv">
 				<table align="center" width="960px" border="0" cellpadding="0"
 					cellspacing="0" class="CContent">
@@ -56,7 +82,7 @@ window.history.go(-1);
 													</td>
 													<td width="27%">
 														<input type="text" maxlength="25" name="title"
-															value="${user.title}">
+															value="${user.title}" id="title">
 													</td>
 													<td nowrap align="right" width="11%">
 														新闻副标题：
@@ -71,21 +97,22 @@ window.history.go(-1);
 														最近发布时间：
 													</td>
 													<td width="27%">
-													<input type="text" maxlength="25" value="${fn:substring(user.time, 0, 19)}">
-														<%
+													<input type="text" maxlength="25" name="time" value="${fn:substring(user.time, 0, 10)}" id="time">
+													<img onclick="WdatePicker({el:'time'});" src="${pageContext.request.contextPath }/My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle">
+														<%--
 	    				Date nows = new Date();
 	    				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 	    				String now = s.format(nows);
 						request.setAttribute("now",now);
 						out.println("<input type='hidden' name='time' value='"+ now +"' readonly='readonly'/>");
-	    			 %>
+	    			 --%>
 													</td>
 													<td nowrap align="right" width="11%">
 														作者：
 													</td>
 													<td width="27%">
 														<input type="text" maxlength="50" name="author"
-															value="${user.author}">
+															value="${user.author}" id="author">
 													</td>
 												</tr>
 												<tr>
@@ -93,8 +120,13 @@ window.history.go(-1);
 														发布账号：
 													</td>
 													<td width="27%">
-														<input type="text" maxlength="11" name="userid"
-															value="${user.userid}">
+														<%
+							String userid = session.getAttribute("id").toString();
+							String username = session.getAttribute("name").toString();
+							int uid = Integer.parseInt(userid);
+							out.println("<input type='hidden' maxlength='11' readonly='readonly' name='userid' value='"+userid+"'>");
+							out.println("<input type='text' maxlength='11' readonly='readonly' name='username' value='"+username+"'>");
+						 %>
 													</td>
 													<td nowrap align="right" width="11%">
 														栏目编号：
@@ -102,18 +134,19 @@ window.history.go(-1);
 													<td width="27%">
 														<select name="lmid">
 															<c:forEach items="${selectlist}" var="temp">
-																<c:set var="lmid" value="${temp.id}" scope="session" />
+																<c:set var="lmid" value="${temp.id}" scope="request" />
 																<c:set var="lmname" value="${temp.lmname}"
-																	scope="session" />
-																<c:set var="lanid" value="${user.lmid}" scope="session"></c:set>
+																	scope="request" />
+																<c:set var="lanid" value="${user.lmid}" scope="request"></c:set>
 																<%
-							String lmids = session.getAttribute("lmid").toString();
-							String lanmuname = session.getAttribute("lmname").toString();
+							String lmids = request.getAttribute("lmid").toString();
+							String lanmuname = request.getAttribute("lmname").toString();
 							int lanmuid = Integer.parseInt(lmids);
-							if(lanmuid==Integer.parseInt(session.getAttribute("lanid").toString())){
+							if(lanmuid==Integer.parseInt(request.getAttribute("lanid").toString())){
 								out.println("<option value="+ lanmuid +" selected='selected'>"+ lanmuid +"："+lanmuname+"</option>");
+							}else{
+								out.println("<option value="+ lanmuid +">"+ lanmuid +"："+lanmuname+"</option>");
 							}
-							out.println("<option value="+ lanmuid +">"+ lanmuid +"："+lanmuname+"</option>");
 						 %>
 															</c:forEach>
 														</select>
@@ -139,7 +172,7 @@ window.history.go(-1);
 					</tr>
 					<tr>
 						<td align="center" colspan="4">
-							<input type="submit" value="提交" class="button" />
+							<input type="button" value="提交" class="button" onclick="tijiao();" />
 							<input type="reset" value="重置" class="button" />
 							<input type="button" value="返回" onClick="back();" class="button" />
 						</td>

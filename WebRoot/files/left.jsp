@@ -92,9 +92,6 @@ function list(idstr){
 			</td>
 		  </tr>
 		</table>
-		
-
-
 		<!--  任务系统开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
