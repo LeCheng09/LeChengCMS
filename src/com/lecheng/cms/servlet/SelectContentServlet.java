@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.lecheng.cms.dao.SelectContentDao;
 import com.lecheng.cms.pojo.SelectContentPojo;
+import com.lecheng.cms.pojo.XiangXiNewsPojo;
 
 public class SelectContentServlet extends HttpServlet {
 
@@ -70,10 +71,10 @@ public class SelectContentServlet extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		SelectContentDao sc = new SelectContentDao();
-		String str = sc.SelectContent();
-		str.replaceAll("\r\n", "<br>");
+		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
+		list = sc.SelectContent();
 		HttpSession session = request.getSession();
-		session.setAttribute("str", str);
+		session.setAttribute("list", list);
 		response.sendRedirect("../newsmore.jsp");
 	}
 

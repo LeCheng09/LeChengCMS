@@ -29,7 +29,6 @@ public class ShouYeDao {
 				XiangXiNewsPojo xw = new XiangXiNewsPojo();
 //<<<<<<< HEAD
 				xw.setContent(su.Html2Text(rs.getString(1)));
-				System.out.println("头条新闻:" + xw.getContent());
 //=======
 //				xw.setContent(rs.getString(1));
 //>>>>>>> branch 'master' of git@github.com:LeCheng09/LeChengCMS.git
@@ -47,7 +46,7 @@ public class ShouYeDao {
 	//动态获取标题和时间放置首页
 	public ArrayList<XiangXiNewsPojo> selectlm04(String str) {
 		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
-		String sql = "SELECT news.title,news.time,news.id FROM news,lm WHERE news.lmid = lm.id  and lmname = ? LIMIT 0,2";
+		String sql = "SELECT news.title,news.time,news.id FROM news,lm WHERE news.lmid = lm.id  AND lmname = ? ORDER BY news.time DESC LIMIT 0,2 ";
 		conn = db.getConn();
 		try {
 			ps = conn.prepareStatement(sql);
