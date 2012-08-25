@@ -27,9 +27,12 @@ public class ShouYeDao {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				XiangXiNewsPojo xw = new XiangXiNewsPojo();
-				
+//<<<<<<< HEAD
 				xw.setContent(su.Html2Text(rs.getString(1)));
 				System.out.println("头条新闻:" + xw.getContent());
+//=======
+//				xw.setContent(rs.getString(1));
+//>>>>>>> branch 'master' of git@github.com:LeCheng09/LeChengCMS.git
 				list.add(xw);
 			}
 			rs.close();
