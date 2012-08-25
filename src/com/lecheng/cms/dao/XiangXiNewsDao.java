@@ -19,7 +19,7 @@ public class XiangXiNewsDao {
 	 */
 	public ArrayList<XiangXiNewsPojo> selectlm(int id) {
 		ArrayList<XiangXiNewsPojo> list = new ArrayList<XiangXiNewsPojo>();
-		String sql = "SELECT title,sec_title,author,TIME,content,id FROM news WHERE id=?";
+		String sql = "SELECT title,sec_title,author,TIME,content,id FROM news  WHERE id=?";
 		conn = db.getConn();
 		try {
 			ps = conn.prepareStatement(sql);

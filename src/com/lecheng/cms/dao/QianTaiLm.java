@@ -134,7 +134,7 @@ public class QianTaiLm {
 	 */
 	public ArrayList<QianTaiXinWenPojo> selectlm04(String lmname) {
 		ArrayList<QianTaiXinWenPojo> list = new ArrayList<QianTaiXinWenPojo>();
-		String sql = "SELECT news.title,news.time,news.id FROM news,lm WHERE news.lmid = lm.id AND lm.lmname=?";
+		String sql = "SELECT news.title,news.time,news.id FROM news,lm WHERE news.lmid = lm.id AND lm.lmname=?  ORDER BY news.time DESC";
 		conn = db.getConn();
 		try {
 			ps = conn.prepareStatement(sql);
